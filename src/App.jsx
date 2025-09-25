@@ -140,60 +140,62 @@ export default function App() {
   }
 
   function toggleDeed(dayIdx, deedIdx) {
-    setProgress((prev) => {
-      const copy = { ...prev };
-      if (!copy[dayIdx]) copy[dayIdx] = {};
-      // flip
-      copy[dayIdx][deedIdx] = !copy[dayIdx][deedIdx];
+    setProgress(prevProgress => {
+      const copy = { ...prevProgress };
+        if (!copy[dayIdx]) copy[dayIdx] = {};
+        // flip the deed
+        copy[dayIdx][deedIdx] = !copy[dayIdx][deedIdx];
 
-      // After flipping, update meta (streak & total points) only when marking a deed to DONE
-      const wasCompletedBefore = Object.values(prev[dayIdx] || {}).some(Boolean);
-      const nowCompleted = Object.values(copy[dayIdx] || {}).some(Boolean);
+        // compute whether the day was completed before and now
+        const wasCompletedBefore = Object.values(prevProgress[dayIdx] || {}).some(Boolean);
+        const nowCompleted = Object.values(copy[dayIdx] || {}).some(Boolean);
 
-      // totalPoints: compute from copy
-      const newTotalPoints = computeTotalPoints(copy);
+        // update totalPoints immediately from the new progress snapshot
+        const newTotalPoints = (function computeTotalPoints(prog) {
+          let sum = 0;
+          Object.values(prog || {}).forEach(dayObj => {
+            if (!dayObj) return;
+            sum += Object.values(dayObj).filter(Boolean).length;
+          });
+          return sum;
+        })(copy);
 
-      // clone previous meta to update
-      const newMeta = { ...readMeta(), totalPoints: newTotalPoints };
+        // update meta using the state setter to avoid stale reads
+        setMeta(prevMeta => {
+          // make a shallow clone
+          const newMeta = { ...prevMeta, totalPoints: newTotalPoints };
+          const todayDatePart = getISTDatePart(new Date());
 
-      const todayDatePart = getISTDatePart(new Date());
-      const yesterday = (dateStr) => {
-        // returns "YYYY-MM-DD" string for dateStr - 1 day (in IST)
-        const base = new Date(dateStr + "T00:00:00+05:30");
-        const prev = new Date(base.getTime() - 24 * 3600 * 1000);
-        return getISTDatePart(prev);
-      };
+          // helper to compute yesterday string in IST
+          const yesterdayOf = (dateStr) => {
+            const base = new Date(dateStr + "T00:00:00+05:30");
+            const prev = new Date(base.getTime() - 24 * 3600 * 1000);
+            return getISTDatePart(prev);
+          };
 
-      // Only take action when the day transitions from not-completed -> completed
-      if (!wasCompletedBefore && nowCompleted) {
-        // user just completed today for the first time
-        const lastDate = newMeta.lastCompletedDate; // could be null
-        if (lastDate) {
-          // if lastDate was yesterday (consecutive), increment streak; otherwise reset to 1
-          if (lastDate === yesterday(todayDatePart)) {
-            newMeta.streak = (newMeta.streak || 0) + 1;
-          } else if (lastDate === todayDatePart) {
-            // already same day (unlikely here), keep streak
-          } else {
-            newMeta.streak = 1;
+          // Only act when the day transitions from not-completed -> completed
+          if (!wasCompletedBefore && nowCompleted) {
+            const lastDate = newMeta.lastCompletedDate; // may be null
+            if (lastDate && lastDate === yesterdayOf(todayDatePart)) {
+              newMeta.streak = (newMeta.streak || 0) + 1;
+            } else {
+              // either lastDate is null, same-day, or older -> reset to 1
+              newMeta.streak = 1;
+            }
+            // update lastCompletedDate to today
+            newMeta.lastCompletedDate = todayDatePart;
           }
-        } else {
-          newMeta.streak = 1;
-        }
-        newMeta.lastCompletedDate = todayDatePart;
-      } else {
-        // If user unchecks (nowCompleted false) we do not decrease streak to keep UX forgiving.
-        // Optionally you could handle strict decrement here.
-      }
+          // if user unchecks and nowCompleted becomes false we DO NOT decrement streak (friendly UX)
+          return newMeta;
+        });
 
-      // Save meta and progress
-      setMeta(newMeta);
-      return copy;
+        return copy;
     });
 
     setJoyMessage("Lovely — you did a good thing! 🌟");
     setTimeout(() => setJoyMessage(null), 1500);
   }
+
 
   if (content.length === 0) {
     return <div className="wrap">Loading…</div>;

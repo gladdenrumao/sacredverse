@@ -358,5 +358,1844 @@
     "title": "Help with chores",
     "text": "Wash one plate or sweep a small area at home.",
     "deeds": ["Do one household chore today"]
+  },
+{
+    "id": 61,
+    "title": "Offer a warm welcome",
+    "text": "Smile and welcome a new person at work or class. A gentle 'Welcome!' helps them feel seen.",
+    "deeds": ["Say 'Welcome' to one new person today"]
+  },
+  {
+    "id": 62,
+    "title": "Share a helpful tip",
+    "text": "If someone struggles with a small task, offer a quick tip that helped you before.",
+    "deeds": ["Give one helpful tip to someone who needs it"]
+  },
+  {
+    "id": 63,
+    "title": "Thank quietly",
+    "text": "Leave a short thank-you note or message for someone who helped you recently.",
+    "deeds": ["Send one short thank-you message today"]
+  },
+  {
+    "id": 64,
+    "title": "Give space",
+    "text": "If someone needs time or privacy, give them space without asking questions.",
+    "deeds": ["Respect someone’s space when they need it today"]
+  },
+  {
+    "id": 65,
+    "title": "Offer to take a photo",
+    "text": "If strangers want a photo together, offer to take it for them with a smile.",
+    "deeds": ["Offer to take or help with one photo today"]
+  },
+  {
+    "id": 66,
+    "title": "Share a small resource",
+    "text": "Recommend one short article or video that helped you recently.",
+    "deeds": ["Share one useful resource with a friend"]
+  },
+  {
+    "id": 67,
+    "title": "Water a plant",
+    "text": "Tend to a plant (yours or a neighbor’s) for a minute — plants respond to care.",
+    "deeds": ["Water or check one plant today"]
+  },
+  {
+    "id": 68,
+    "title": "Send encouragement",
+    "text": "Send a short message to someone facing a small challenge: 'You’ve got this.'",
+    "deeds": ["Send one encouraging message today"]
+  },
+  {
+    "id": 69,
+    "title": "Pay a simple compliment",
+    "text": "Notice something genuine and tell it — ‘Nice work on that presentation’.",
+    "deeds": ["Give one specific compliment today"]
+  },
+  {
+    "id": 70,
+    "title": "Help clean a common space",
+    "text": "If you share a kitchen or desk area, clear one small spot for everyone’s comfort.",
+    "deeds": ["Clean one shared spot today"]
+  },
+  {
+    "id": 71,
+    "title": "Offer a brief hand",
+    "text": "If a coworker seems busy, offer to help with one small thing for five minutes.",
+    "deeds": ["Offer five minutes of help to a busy person"]
+  },
+  {
+    "id": 72,
+    "title": "Share a light joke",
+    "text": "Share a gentle, kind joke to lift someone’s mood (nothing mean).",
+    "deeds": ["Share one light joke or smile today"]
+  },
+  {
+    "id": 73,
+    "title": "Thank the cook",
+    "text": "If someone prepares food at home or office, thank them for their effort.",
+    "deeds": ["Say thank you to the person who cooked today"]
+  },
+  {
+    "id": 74,
+    "title": "Hold on to calm",
+    "text": "When conversation gets tense, take a breath and speak calmly to ease it.",
+    "deeds": ["Use a calm tone in one tense moment today"]
+  },
+  {
+    "id": 75,
+    "title": "Share a small item",
+    "text": "Offer a bookmark, pen, or charger if someone needs it briefly.",
+    "deeds": ["Lend a small useful item to someone today"]
+  },
+  {
+    "id": 76,
+    "title": "Say 'I appreciate you'",
+    "text": "Tell someone you appreciate them for a specific reason — it warms their day.",
+    "deeds": ["Tell one person 'I appreciate you' today"]
+  },
+  {
+    "id": 77,
+    "title": "Respect differences",
+    "text": "If opinions differ, listen to understand rather than to reply.",
+    "deeds": ["Listen patiently to a differing viewpoint today"]
+  },
+  {
+    "id": 78,
+    "title": "Offer water to others",
+    "text": "Carry an extra bottle and offer it to someone who might need it.",
+    "deeds": ["Offer water to one person today"]
+  },
+  {
+    "id": 79,
+    "title": "Give a simple tip",
+    "text": "Share one quick life-hack you use (phone shortcut, recipe tweak).",
+    "deeds": ["Share one simple useful tip today"]
+  },
+  {
+    "id": 80,
+    "title": "Pick up a small trash",
+    "text": "If you see litter, pick it up and dispose it properly — small actions add up.",
+    "deeds": ["Pick up one piece of litter today"]
+  },
+  {
+    "id": 81,
+    "title": "Give space in queue",
+    "text": "If someone is behind you and rushing, let them go first politely.",
+    "deeds": ["Let one person go ahead in a queue today"]
+  },
+  {
+    "id": 82,
+    "title": "Encourage a hobby",
+    "text": "Compliment someone’s hobby or creative effort — it helps them keep going.",
+    "deeds": ["Praise one person’s hobby today"]
+  },
+  {
+    "id": 83,
+    "title": "Share an inspiring quote",
+    "text": "Send a short, positive quote to someone who might need it today.",
+    "deeds": ["Share one short inspirational line today"]
+  },
+  {
+    "id": 84,
+    "title": "Offer a simple ride",
+    "text": "If you’re driving and a friend needs a short lift, offer if you can.",
+    "deeds": ["Offer a short ride to someone when safe"]
+  },
+  {
+    "id": 85,
+    "title": "Be present",
+    "text": "During a conversation, look at the person and give full attention for a minute.",
+    "deeds": ["Give full attention to one conversation today"]
+  },
+  {
+    "id": 86,
+    "title": "Share a resource for study",
+    "text": "If a classmate struggles, share one clear resource that helped you.",
+    "deeds": ["Share one study resource with a peer"]
+  },
+  {
+    "id": 87,
+    "title": "Offer a gentle reminder",
+    "text": "If a friend forgets something small, remind them kindly — not scold.",
+    "deeds": ["Gently remind one person today"]
+  },
+  {
+    "id": 88,
+    "title": "Praise improvement",
+    "text": "Notice small improvements in someone and tell them — it encourages more effort.",
+    "deeds": ["Praise one small improvement you see today"]
+  },
+  {
+    "id": 89,
+    "title": "Ask 'How can I help?'",
+    "text": "When you spot a need, simply ask if you can help, even briefly.",
+    "deeds": ["Ask one person 'How can I help?' today"]
+  },
+  {
+    "id": 90,
+    "title": "Share a healthy snack",
+    "text": "Offer a fruit or simple snack to someone who seems tired.",
+    "deeds": ["Share one small healthy snack today"]
+  },
+  {
+    "id": 91,
+    "title": "Offer a seat at lunch",
+    "text": "Invite someone who is alone to join your lunch table for a short while.",
+    "deeds": ["Invite one person to join you for a meal today"]
+  },
+  {
+    "id": 92,
+    "title": "Encourage effort publicly",
+    "text": "Praise someone’s effort in a group setting to boost their confidence.",
+    "deeds": ["Give public praise to someone’s effort today"]
+  },
+  {
+    "id": 93,
+    "title": "Share a calming tip",
+    "text": "Share one breathing or focus tip with a stressed friend.",
+    "deeds": ["Share one calming tip with someone today"]
+  },
+  {
+    "id": 94,
+    "title": "Thank a helper",
+    "text": "Thank someone who quietly helps behind the scenes — cleaners, admins, etc.",
+    "deeds": ["Thank one behind-the-scenes helper today"]
+  },
+  {
+    "id": 95,
+    "title": "Listen to an elder",
+    "text": "Sit with an elder and ask about one memory — listening honors them.",
+    "deeds": ["Ask an elder about one memory today"]
+  },
+  {
+    "id": 96,
+    "title": "Share a positive note",
+    "text": "Leave a short sticky note of thanks for someone to find later.",
+    "deeds": ["Leave a small positive note for someone today"]
+  },
+  {
+    "id": 97,
+    "title": "Offer to babysit briefly",
+    "text": "If a friend needs a quick hand with a child, offer a short help if you can.",
+    "deeds": ["Offer brief help to a parent today"]
+  },
+  {
+    "id": 98,
+    "title": "Express curiosity",
+    "text": "Ask someone about their interests — curiosity shows you care.",
+    "deeds": ["Ask one person about their hobby today"]
+  },
+  {
+    "id": 99,
+    "title": "Share a good link",
+    "text": "Share one short article or video that made you smile or think.",
+    "deeds": ["Share one uplifting link today"]
+  },
+  {
+    "id": 100,
+    "title": "Give a warm send-off",
+    "text": "When someone leaves a meeting, wish them well — 'Take care' goes far.",
+    "deeds": ["Wish someone well as they leave today"]
+  },
+  {
+    "id": 101,
+    "title": "Offer to proofread",
+    "text": "If a friend needs a quick read of a message or note, offer a glance.",
+    "deeds": ["Offer to proofread one short message today"]
+  },
+  {
+    "id": 102,
+    "title": "Give a listening ear",
+    "text": "If a friend seems quiet, ask gently 'Are you okay?' and listen.",
+    "deeds": ["Ask and listen to one quiet friend today"]
+  },
+  {
+    "id": 103,
+    "title": "Hand out encouragement",
+    "text": "Write a short encouraging line and give it to a teammate before a task.",
+    "deeds": ["Give one encouraging line to a teammate today"]
+  },
+  {
+    "id": 104,
+    "title": "Share gratitude publicly",
+    "text": "Thank someone publicly in a group message or chat for their help.",
+    "deeds": ["Publicly thank one person today"]
+  },
+  {
+    "id": 105,
+    "title": "Offer to run errand",
+    "text": "If you have time, offer to pick up a small item for a neighbor or friend.",
+    "deeds": ["Offer a quick errand help to someone today"]
+  },
+  {
+    "id": 106,
+    "title": "Give a calm response",
+    "text": "When criticized, respond calmly — 'Thanks for the input' keeps harmony.",
+    "deeds": ["Respond calmly to any criticism today"]
+  },
+  {
+    "id": 107,
+    "title": "Praise small wins",
+    "text": "Celebrate a small personal win with someone who helped you.",
+    "deeds": ["Share one small win with a helper today"]
+  },
+  {
+    "id": 108,
+    "title": "Offer an umbrella",
+    "text": "If rain starts and someone is without cover, offer your umbrella briefly.",
+    "deeds": ["Offer cover to someone in rain today"]
+  },
+  {
+    "id": 109,
+    "title": "Share a learning",
+    "text": "Tell someone one thing you learned recently that might help them.",
+    "deeds": ["Share one learning with a friend today"]
+  },
+  {
+    "id": 110,
+    "title": "Say 'I noticed you'",
+    "text": "Tell someone you noticed their effort — it shows presence and care.",
+    "deeds": ["Tell one person 'I noticed you' today"]
+  },
+  {
+    "id": 111,
+    "title": "Offer a small favour",
+    "text": "Do one tiny favour without being asked — it matters more than you think.",
+    "deeds": ["Do one small favour for someone today"]
+  },
+  {
+    "id": 112,
+    "title": "Help a stranger",
+    "text": "If safe, help a stranger with directions or a small task they ask for.",
+    "deeds": ["Help one stranger with directions or info today"]
+  },
+  {
+    "id": 113,
+    "title": "Encourage a learner",
+    "text": "If someone is learning, tell them 'You're getting better' to motivate them.",
+    "deeds": ["Encourage one learner today"]
+  },
+  {
+    "id": 114,
+    "title": "Share a calming message",
+    "text": "Send a simple 'Take a breath' message to someone who seems rushed.",
+    "deeds": ["Send one calming message today"]
+  },
+  {
+    "id": 115,
+    "title": "Give a thoughtful reply",
+    "text": "Respond thoughtfully to a message instead of a quick short reply.",
+    "deeds": ["Give one thoughtful reply today"]
+  },
+  {
+    "id": 116,
+    "title": "Help tidy a shared area",
+    "text": "Spend two minutes to tidy a shared shelf or table in your space.",
+    "deeds": ["Tidy one shared spot for two minutes today"]
+  },
+  {
+    "id": 117,
+    "title": "Praise kindness",
+    "text": "When you see someone being kind, tell them you noticed — it spreads more kindness.",
+    "deeds": ["Praise kind behaviour once today"]
+  },
+  {
+    "id": 118,
+    "title": "Offer to brief someone",
+    "text": "If a colleague missed a meeting, offer a quick 2-minute summary.",
+    "deeds": ["Offer a short meeting summary to a colleague"]
+  },
+  {
+    "id": 119,
+    "title": "Share a positive memory",
+    "text": "Tell someone a short happy memory involving them — it brightens their day.",
+    "deeds": ["Share one positive memory with someone today"]
+  },
+  {
+    "id": 120,
+    "title": "Offer a simple thanks",
+    "text": "At the end of the day, thank someone who made your day easier in any small way.",
+    "deeds": ["Say thanks to one person before the day ends"]
+  },
+  {
+    "id": 121,
+    "title": "Encourage teamwork",
+    "text": "When working in a group, acknowledge everyone’s role. Example: 'That was a helpful idea.'",
+    "deeds": ["Appreciate one teammate’s contribution today"]
+  },
+  {
+    "id": 122,
+    "title": "Offer a gentle reminder",
+    "text": "Remind a friend about a small task kindly — not like a scolding.",
+    "deeds": ["Give one polite reminder today"]
+  },
+  {
+    "id": 123,
+    "title": "Be kind in traffic",
+    "text": "If someone cuts in by mistake, let it go without anger.",
+    "deeds": ["Show patience once in traffic today"]
+  },
+  {
+    "id": 124,
+    "title": "Praise patience",
+    "text": "Notice someone waiting calmly and say, 'That was patient of you.'",
+    "deeds": ["Praise someone’s patience today"]
+  },
+  {
+    "id": 125,
+    "title": "Offer your place",
+    "text": "If someone looks tired, offer your chair or seat.",
+    "deeds": ["Offer your seat once today"]
+  },
+  {
+    "id": 126,
+    "title": "Send a kind emoji",
+    "text": "Send a heart ❤️ or smile 🙂 to brighten a chat.",
+    "deeds": ["Send one kind emoji today"]
+  },
+  {
+    "id": 127,
+    "title": "Thank your family",
+    "text": "Say 'Thanks for cooking' or 'Thanks for supporting me' at home.",
+    "deeds": ["Thank one family member today"]
+  },
+  {
+    "id": 128,
+    "title": "Compliment handwriting",
+    "text": "If someone writes neatly, mention it. Small notice feels good.",
+    "deeds": ["Compliment one person’s handwriting today"]
+  },
+  {
+    "id": 129,
+    "title": "Encourage small effort",
+    "text": "If someone starts a new habit, say, 'Good start!'",
+    "deeds": ["Encourage a new habit once today"]
+  },
+  {
+    "id": 130,
+    "title": "Offer directions calmly",
+    "text": "If asked, give directions with patience even if you’re busy.",
+    "deeds": ["Help one person with directions today"]
+  },
+  {
+    "id": 131,
+    "title": "Smile when serving",
+    "text": "If you hand something to someone (like notes or food), do it with a smile.",
+    "deeds": ["Pass one item with a smile today"]
+  },
+  {
+    "id": 132,
+    "title": "Say 'Good effort'",
+    "text": "Encourage someone even if they didn’t succeed fully.",
+    "deeds": ["Say 'Good effort' once today"]
+  },
+  {
+    "id": 133,
+    "title": "Offer to share umbrella",
+    "text": "If it rains, offer to cover a friend or stranger briefly.",
+    "deeds": ["Share umbrella once today if possible"]
+  },
+  {
+    "id": 134,
+    "title": "Celebrate quietly",
+    "text": "Clap softly or nod when someone achieves something.",
+    "deeds": ["Celebrate one person’s win today"]
+  },
+  {
+    "id": 135,
+    "title": "Ask for input",
+    "text": "Invite a quieter person to share their view in class or meeting.",
+    "deeds": ["Ask one quiet person’s opinion today"]
+  },
+  {
+    "id": 136,
+    "title": "Respect time online",
+    "text": "Keep your reply short if someone is busy, so you respect their time.",
+    "deeds": ["Send one mindful, short reply today"]
+  },
+  {
+    "id": 137,
+    "title": "Offer your charger",
+    "text": "If someone’s phone is low, lend your charger for a bit.",
+    "deeds": ["Lend your charger once today"]
+  },
+  {
+    "id": 138,
+    "title": "Say 'Nice try'",
+    "text": "When a child or peer fails, encourage them with 'Nice try!'",
+    "deeds": ["Say 'Nice try' once today"]
+  },
+  {
+    "id": 139,
+    "title": "Pick up after yourself",
+    "text": "Leave a clean desk or dining table for the next person.",
+    "deeds": ["Clean up after yourself once today"]
+  },
+  {
+    "id": 140,
+    "title": "Offer to carry light load",
+    "text": "If someone is holding many things, help carry one item.",
+    "deeds": ["Carry one item for someone today"]
+  },
+  {
+    "id": 141,
+    "title": "Encourage practice",
+    "text": "If someone is practicing (music, sport), say 'Keep going!'",
+    "deeds": ["Encourage one practice session today"]
+  },
+  {
+    "id": 142,
+    "title": "Say 'Good morning' first",
+    "text": "Greet someone before they greet you — small initiative spreads warmth.",
+    "deeds": ["Greet someone first today"]
+  },
+  {
+    "id": 143,
+    "title": "Help find info",
+    "text": "If someone is confused, help search or explain quickly.",
+    "deeds": ["Help one person find info today"]
+  },
+  {
+    "id": 144,
+    "title": "Say 'Take care'",
+    "text": "When parting, tell someone 'Take care' warmly.",
+    "deeds": ["Say 'Take care' once today"]
+  },
+  {
+    "id": 145,
+    "title": "Compliment voice",
+    "text": "If someone speaks clearly, mention 'You have a nice voice.'",
+    "deeds": ["Compliment one person’s voice today"]
+  },
+  {
+    "id": 146,
+    "title": "Give a patient ear",
+    "text": "Let someone finish their story without interrupting.",
+    "deeds": ["Listen without interruption once today"]
+  },
+  {
+    "id": 147,
+    "title": "Appreciate punctuality",
+    "text": "Notice someone arriving on time and say, 'Thanks for being punctual.'",
+    "deeds": ["Appreciate punctuality once today"]
+  },
+  {
+    "id": 148,
+    "title": "Offer to explain",
+    "text": "If someone missed a detail in class, explain briefly.",
+    "deeds": ["Explain one detail to a peer today"]
+  },
+  {
+    "id": 149,
+    "title": "Encourage self-care",
+    "text": "Tell a friend 'Drink water' or 'Rest a bit' when they’re tired.",
+    "deeds": ["Encourage one self-care act today"]
+  },
+  {
+    "id": 150,
+    "title": "Smile at staff",
+    "text": "When a guard or cleaner passes by, smile at them warmly.",
+    "deeds": ["Smile at one staff member today"]
+  },
+  {
+    "id": 151,
+    "title": "Say 'Well done'",
+    "text": "Even for a small act, say 'Well done!' to encourage.",
+    "deeds": ["Say 'Well done' once today"]
+  },
+  {
+    "id": 152,
+    "title": "Respect silence",
+    "text": "Stay quiet when someone is resting nearby.",
+    "deeds": ["Respect silence in one moment today"]
+  },
+  {
+    "id": 153,
+    "title": "Give seat to child",
+    "text": "If a child is standing, offer your place kindly.",
+    "deeds": ["Offer your seat to a child today"]
+  },
+  {
+    "id": 154,
+    "title": "Say 'I am proud of you'",
+    "text": "Tell a sibling, friend, or teammate 'I am proud of you' sincerely.",
+    "deeds": ["Say 'I’m proud of you' to one person today"]
+  },
+  {
+    "id": 155,
+    "title": "Praise neatness",
+    "text": "Notice someone keeping their area tidy and praise it.",
+    "deeds": ["Praise someone’s neatness today"]
+  },
+  {
+    "id": 156,
+    "title": "Offer to share notes",
+    "text": "If someone missed class, share your notes.",
+    "deeds": ["Share notes with one peer today"]
+  },
+  {
+    "id": 157,
+    "title": "Encourage discipline",
+    "text": "Praise a friend for sticking to their schedule.",
+    "deeds": ["Encourage one disciplined act today"]
+  },
+  {
+    "id": 158,
+    "title": "Say 'You matter'",
+    "text": "Tell someone they matter — even a short message means a lot.",
+    "deeds": ["Say 'You matter' to one person today"]
+  },
+  {
+    "id": 159,
+    "title": "Offer a sip",
+    "text": "If you’re drinking water and a friend looks thirsty, offer them a sip.",
+    "deeds": ["Offer a sip of water to someone today"]
+  },
+  {
+    "id": 160,
+    "title": "Share a shortcut",
+    "text": "Teach a keyboard shortcut or hack that saves time.",
+    "deeds": ["Share one small shortcut today"]
+  },
+  {
+    "id": 161,
+    "title": "Encourage politeness",
+    "text": "Notice someone saying 'please' or 'thank you' and appreciate it.",
+    "deeds": ["Acknowledge politeness once today"]
+  },
+  {
+    "id": 162,
+    "title": "Offer to sit together",
+    "text": "Invite someone sitting alone to join your group.",
+    "deeds": ["Invite one person to sit with you today"]
+  },
+  {
+    "id": 163,
+    "title": "Say 'Good night'",
+    "text": "At the end of the day, say 'Good night' kindly to family or friend.",
+    "deeds": ["Wish 'Good night' to one person today"]
+  },
+  {
+    "id": 164,
+    "title": "Praise sharing",
+    "text": "When you see someone share, say 'That was generous of you.'",
+    "deeds": ["Praise one act of sharing today"]
+  },
+  {
+    "id": 165,
+    "title": "Offer to stand in line",
+    "text": "If someone has few items, let them go ahead in a shop queue.",
+    "deeds": ["Let one person go ahead in line today"]
+  },
+  {
+    "id": 166,
+    "title": "Say 'Best of luck'",
+    "text": "Tell someone with an exam or meeting 'Best of luck!'",
+    "deeds": ["Say 'Best of luck' once today"]
+  },
+  {
+    "id": 167,
+    "title": "Encourage creativity",
+    "text": "Appreciate someone’s drawing, poem, or post.",
+    "deeds": ["Appreciate one creative act today"]
+  },
+  {
+    "id": 168,
+    "title": "Offer a simple treat",
+    "text": "Give a sweet or small snack to brighten someone’s moment.",
+    "deeds": ["Give one small treat today"]
+  },
+  {
+    "id": 169,
+    "title": "Respect waiting",
+    "text": "Don’t rush ahead of someone who was waiting before you.",
+    "deeds": ["Wait your turn patiently once today"]
+  },
+  {
+    "id": 170,
+    "title": "Say 'You inspire me'",
+    "text": "Tell someone their work or behaviour inspired you.",
+    "deeds": ["Say 'You inspire me' to one person today"]
+  },
+  {
+    "id": 171,
+    "title": "Offer to explain tech",
+    "text": "Help someone understand a small app feature.",
+    "deeds": ["Explain one app feature to someone today"]
+  },
+  {
+    "id": 172,
+    "title": "Say 'Thanks buddy'",
+    "text": "To a friend or colleague, say 'Thanks buddy!' warmly.",
+    "deeds": ["Say 'Thanks buddy' once today"]
+  },
+  {
+    "id": 173,
+    "title": "Praise resilience",
+    "text": "Tell someone 'You handled that well' after they overcome a small struggle.",
+    "deeds": ["Praise one resilient act today"]
+  },
+  {
+    "id": 174,
+    "title": "Offer to open window",
+    "text": "If air feels stuffy, open a window for fresh air.",
+    "deeds": ["Open a window for fresh air once today"]
+  },
+  {
+    "id": 175,
+    "title": "Encourage honesty",
+    "text": "When someone admits fault, say 'That was honest of you.'",
+    "deeds": ["Acknowledge honesty once today"]
+  },
+  {
+    "id": 176,
+    "title": "Say 'Good job team'",
+    "text": "After a group task, say 'Good job team!' aloud.",
+    "deeds": ["Say 'Good job team' once today"]
+  },
+  {
+    "id": 177,
+    "title": "Offer to share food",
+    "text": "Break a snack into two and share with someone nearby.",
+    "deeds": ["Share food with one person today"]
+  },
+  {
+    "id": 178,
+    "title": "Compliment clothing",
+    "text": "Say 'That’s a nice colour on you.'",
+    "deeds": ["Compliment clothing once today"]
+  },
+  {
+    "id": 179,
+    "title": "Say 'You’re improving'",
+    "text": "Notice someone’s growth and tell them 'You’re improving.'",
+    "deeds": ["Say 'You’re improving' to one person today"]
+  },
+  {
+    "id": 180,
+    "title": "Offer quick help",
+    "text": "When you see someone lift or carry something heavy, offer a quick hand.",
+    "deeds": ["Offer quick help once today"]
   }
+    ,
+  {
+    "id": 181,
+    "title": "Encourage good manners",
+    "text": "When you hear someone say 'please' or 'thank you', appreciate it.",
+    "deeds": ["Appreciate good manners once today"]
+  },
+  {
+    "id": 182,
+    "title": "Offer shade",
+    "text": "If you have an umbrella or shade, let someone share it briefly.",
+    "deeds": ["Offer shade to one person today"]
+  },
+  {
+    "id": 183,
+    "title": "Say 'I trust you'",
+    "text": "Telling someone you trust them builds confidence and connection.",
+    "deeds": ["Say 'I trust you' to one person today"]
+  },
+  {
+    "id": 184,
+    "title": "Encourage healthy choice",
+    "text": "If a friend drinks water or eats fruit, say 'Good choice!'",
+    "deeds": ["Encourage one healthy choice today"]
+  },
+  {
+    "id": 185,
+    "title": "Help a classmate",
+    "text": "Offer to explain one small concept to someone struggling.",
+    "deeds": ["Help one classmate with a topic today"]
+  },
+  {
+    "id": 186,
+    "title": "Say 'You made my day'",
+    "text": "Tell someone whose action made you happy: 'You made my day!'",
+    "deeds": ["Say 'You made my day' once today"]
+  },
+  {
+    "id": 187,
+    "title": "Offer extra pen",
+    "text": "Carry a spare pen and lend it when someone needs it.",
+    "deeds": ["Lend one pen today"]
+  },
+  {
+    "id": 188,
+    "title": "Appreciate teamwork",
+    "text": "When a task finishes smoothly, say 'That was good teamwork.'",
+    "deeds": ["Acknowledge teamwork once today"]
+  },
+  {
+    "id": 189,
+    "title": "Say 'I am here for you'",
+    "text": "Offer support with a calm line: 'I’m here if you need me.'",
+    "deeds": ["Say 'I’m here for you' once today"]
+  },
+  {
+    "id": 190,
+    "title": "Help tidy books",
+    "text": "Stack or arrange shared books neatly for others.",
+    "deeds": ["Tidy books or materials once today"]
+  },
+  {
+    "id": 191,
+    "title": "Compliment hairstyle",
+    "text": "Say 'Your hairstyle looks good today!'",
+    "deeds": ["Compliment one hairstyle today"]
+  },
+  {
+    "id": 192,
+    "title": "Say 'Thanks for waiting'",
+    "text": "If someone waited for you, thank them sincerely.",
+    "deeds": ["Say 'Thanks for waiting' once today"]
+  },
+  {
+    "id": 193,
+    "title": "Encourage fairness",
+    "text": "Praise when someone plays or acts fairly.",
+    "deeds": ["Appreciate fairness once today"]
+  },
+  {
+    "id": 194,
+    "title": "Offer to share Wi-Fi",
+    "text": "If safe and needed, share your hotspot or Wi-Fi briefly.",
+    "deeds": ["Share Wi-Fi with one person today"]
+  },
+  {
+    "id": 195,
+    "title": "Say 'You did your best'",
+    "text": "Encourage effort over outcome — 'You did your best.'",
+    "deeds": ["Say 'You did your best' once today"]
+  },
+  {
+    "id": 196,
+    "title": "Offer to pass item",
+    "text": "If someone can’t reach something, hand it to them politely.",
+    "deeds": ["Pass one item for someone today"]
+  },
+  {
+    "id": 197,
+    "title": "Encourage humility",
+    "text": "When someone admits they don’t know, respond kindly.",
+    "deeds": ["Encourage humility once today"]
+  },
+  {
+    "id": 198,
+    "title": "Say 'You’re thoughtful'",
+    "text": "Notice a kind act and say, 'That was thoughtful.'",
+    "deeds": ["Say 'You’re thoughtful' once today"]
+  },
+  {
+    "id": 199,
+    "title": "Offer to refill bottle",
+    "text": "Ask a peer, 'Should I refill your water bottle too?'",
+    "deeds": ["Refill or offer to refill one bottle today"]
+  },
+  {
+    "id": 200,
+    "title": "Thank a driver",
+    "text": "Say 'Thank you' to your auto, cab, or bus driver.",
+    "deeds": ["Thank one driver today"]
+  },
+  {
+    "id": 201,
+    "title": "Encourage sharing notes",
+    "text": "If someone shares their notes, appreciate it aloud.",
+    "deeds": ["Appreciate note-sharing once today"]
+  },
+  {
+    "id": 202,
+    "title": "Say 'That helped me'",
+    "text": "Tell someone when their small action helped you.",
+    "deeds": ["Say 'That helped me' once today"]
+  },
+  {
+    "id": 203,
+    "title": "Help adjust chair",
+    "text": "If someone struggles with a chair or seat, help them adjust it.",
+    "deeds": ["Help with a chair once today"]
+  },
+  {
+    "id": 204,
+    "title": "Encourage speaking up",
+    "text": "If someone is shy, say, 'We’d like to hear your thought.'",
+    "deeds": ["Encourage one person to speak up today"]
+  },
+  {
+    "id": 205,
+    "title": "Say 'Good luck'",
+    "text": "Before a test or task, tell someone 'Good luck!' warmly.",
+    "deeds": ["Wish good luck once today"]
+  },
+  {
+    "id": 206,
+    "title": "Offer a small tool",
+    "text": "Lend a stapler, ruler, or small tool when needed.",
+    "deeds": ["Lend one tool today"]
+  },
+  {
+    "id": 207,
+    "title": "Say 'Well tried'",
+    "text": "Appreciate someone’s attempt even if it didn’t work.",
+    "deeds": ["Say 'Well tried' once today"]
+  },
+  {
+    "id": 208,
+    "title": "Offer a ride back",
+    "text": "If you’re heading the same way, offer a lift if safe.",
+    "deeds": ["Offer a short ride today if possible"]
+  },
+  {
+    "id": 209,
+    "title": "Encourage truth",
+    "text": "When someone tells the truth, say, 'I respect your honesty.'",
+    "deeds": ["Appreciate honesty once today"]
+  },
+  {
+    "id": 210,
+    "title": "Say 'Nice idea'",
+    "text": "When someone suggests something, say 'Nice idea!' even if unused.",
+    "deeds": ["Say 'Nice idea' once today"]
+  },
+  {
+    "id": 211,
+    "title": "Help organize papers",
+    "text": "If papers are scattered, help arrange them neatly.",
+    "deeds": ["Organize papers once today"]
+  },
+  {
+    "id": 212,
+    "title": "Say 'You inspire me'",
+    "text": "Let a person know their hard work inspired you.",
+    "deeds": ["Say 'You inspire me' once today"]
+  },
+  {
+    "id": 213,
+    "title": "Offer a snack",
+    "text": "Share part of your tiffin or snack with someone.",
+    "deeds": ["Offer one snack today"]
+  },
+  {
+    "id": 214,
+    "title": "Say 'Good teamwork'",
+    "text": "After finishing a task together, say 'Good teamwork!'",
+    "deeds": ["Say 'Good teamwork' once today"]
+  },
+  {
+    "id": 215,
+    "title": "Compliment positivity",
+    "text": "If someone smiles often, tell them 'Your positivity is nice.'",
+    "deeds": ["Compliment positivity once today"]
+  },
+  {
+    "id": 216,
+    "title": "Say 'I missed you'",
+    "text": "If you meet a friend after long, say 'I missed you.'",
+    "deeds": ["Say 'I missed you' once today"]
+  },
+  {
+    "id": 217,
+    "title": "Offer to clean board",
+    "text": "If in class, clean the board for the next session.",
+    "deeds": ["Clean a shared board once today"]
+  },
+  {
+    "id": 218,
+    "title": "Encourage gratitude",
+    "text": "When someone thanks you, reply kindly: 'You’re welcome.'",
+    "deeds": ["Say 'You’re welcome' once today"]
+  },
+  {
+    "id": 219,
+    "title": "Say 'Don’t worry'",
+    "text": "If a friend is nervous, calm them with 'Don’t worry.'",
+    "deeds": ["Say 'Don’t worry' once today"]
+  },
+  {
+    "id": 220,
+    "title": "Offer extra chair",
+    "text": "Pull an extra chair if someone needs a seat.",
+    "deeds": ["Offer a chair once today"]
+  },
+  {
+    "id": 221,
+    "title": "Say 'I like that'",
+    "text": "When you notice something good, simply say 'I like that.'",
+    "deeds": ["Say 'I like that' once today"]
+  },
+  {
+    "id": 222,
+    "title": "Help share load",
+    "text": "Offer to carry one bag or file for someone.",
+    "deeds": ["Help carry one bag today"]
+  },
+  {
+    "id": 223,
+    "title": "Say 'You worked hard'",
+    "text": "Acknowledge someone’s visible effort: 'You worked hard on this.'",
+    "deeds": ["Say 'You worked hard' once today"]
+  },
+  {
+    "id": 224,
+    "title": "Encourage reading",
+    "text": "If someone reads, say, 'That’s a great habit.'",
+    "deeds": ["Encourage reading once today"]
+  },
+  {
+    "id": 225,
+    "title": "Say 'Well done buddy'",
+    "text": "Add warmth with 'Well done buddy!'",
+    "deeds": ["Say 'Well done buddy' once today"]
+  },
+  {
+    "id": 226,
+    "title": "Offer to call cab",
+    "text": "If someone struggles to book, help them with your phone.",
+    "deeds": ["Help book a cab once today"]
+  },
+  {
+    "id": 227,
+    "title": "Say 'That’s kind'",
+    "text": "When you see kindness, name it: 'That’s kind of you.'",
+    "deeds": ["Say 'That’s kind' once today"]
+  },
+  {
+    "id": 228,
+    "title": "Offer extra copy",
+    "text": "If you have extra printout or copy, share with someone.",
+    "deeds": ["Give one extra copy to a peer today"]
+  },
+  {
+    "id": 229,
+    "title": "Say 'I’m proud of you'",
+    "text": "Tell a sibling or friend 'I’m proud of you' clearly.",
+    "deeds": ["Say 'I’m proud of you' once today"]
+  },
+  {
+    "id": 230,
+    "title": "Help with small fix",
+    "text": "Fix a loose chair or plug if safe, or inform someone.",
+    "deeds": ["Help fix one small thing today"]
+  },
+  {
+    "id": 231,
+    "title": "Say 'Good effort team'",
+    "text": "After group work, say 'Good effort team!' loudly.",
+    "deeds": ["Say 'Good effort team' once today"]
+  },
+  {
+    "id": 232,
+    "title": "Encourage practice",
+    "text": "If someone repeats to improve, say 'Keep practicing!'",
+    "deeds": ["Encourage practice once today"]
+  },
+  {
+    "id": 233,
+    "title": "Say 'I value your time'",
+    "text": "Tell someone 'I value your time' when they help you.",
+    "deeds": ["Say 'I value your time' once today"]
+  },
+  {
+    "id": 234,
+    "title": "Offer a smile first",
+    "text": "Be the first to smile at a stranger — it spreads positivity.",
+    "deeds": ["Smile at one new person today"]
+  },
+  {
+    "id": 235,
+    "title": "Say 'That was generous'",
+    "text": "When someone shares, say 'That was generous of you.'",
+    "deeds": ["Say 'That was generous' once today"]
+  },
+  {
+    "id": 236,
+    "title": "Help close window",
+    "text": "If it rains or is windy, close a window for comfort.",
+    "deeds": ["Close one window for comfort today"]
+  },
+  {
+    "id": 237,
+    "title": "Say 'Happy to help'",
+    "text": "When someone thanks you, reply 'Happy to help.'",
+    "deeds": ["Say 'Happy to help' once today"]
+  },
+  {
+    "id": 238,
+    "title": "Offer to adjust fan",
+    "text": "If fan or AC bothers someone, adjust it politely.",
+    "deeds": ["Adjust fan/AC once for comfort today"]
+  },
+  {
+    "id": 239,
+    "title": "Say 'You’re awesome'",
+    "text": "Encourage a friend or sibling: 'You’re awesome!'",
+    "deeds": ["Say 'You’re awesome' once today"]
+  },
+  {
+    "id": 240,
+    "title": "Offer quick help",
+    "text": "If someone struggles briefly, lend a hand without delay.",
+    "deeds": ["Offer quick help once today"]
+  },
+  [
+  {
+    "id": 241,
+    "title": "Say 'You did well'",
+    "text": "Notice even a small achievement and tell the person, 'You did well.'",
+    "deeds": ["Say 'You did well' once today"]
+  },
+  {
+    "id": 242,
+    "title": "Offer to carry bag",
+    "text": "If someone looks tired with their bag, carry it a short way.",
+    "deeds": ["Carry one bag for someone today"]
+  },
+  {
+    "id": 243,
+    "title": "Say 'I admire you'",
+    "text": "Tell someone you admire a quality in them — honesty, courage, or kindness.",
+    "deeds": ["Say 'I admire you' once today"]
+  },
+  {
+    "id": 244,
+    "title": "Encourage small saving",
+    "text": "If a friend skips wasteful spending, say 'Smart move!'",
+    "deeds": ["Encourage one saving habit today"]
+  },
+  {
+    "id": 245,
+    "title": "Say 'I respect you'",
+    "text": "Respect builds bonds. Say 'I respect you' sincerely.",
+    "deeds": ["Say 'I respect you' once today"]
+  },
+  {
+    "id": 246,
+    "title": "Offer to clean",
+    "text": "Clean one table, board, or shared item before leaving.",
+    "deeds": ["Clean one shared thing today"]
+  },
+  {
+    "id": 247,
+    "title": "Say 'Great try'",
+    "text": "When effort is visible, encourage with 'Great try!'",
+    "deeds": ["Say 'Great try' once today"]
+  },
+  {
+    "id": 248,
+    "title": "Offer your spot",
+    "text": "If seating is limited, offer your spot to someone who needs it more.",
+    "deeds": ["Offer your spot once today"]
+  },
+  {
+    "id": 249,
+    "title": "Say 'I hear you'",
+    "text": "When someone shares feelings, respond with 'I hear you.'",
+    "deeds": ["Say 'I hear you' once today"]
+  },
+  {
+    "id": 250,
+    "title": "Encourage sharing food",
+    "text": "If someone shares their tiffin, appreciate it openly.",
+    "deeds": ["Appreciate food sharing once today"]
+  },
+  {
+    "id": 251,
+    "title": "Say 'I support you'",
+    "text": "Tell a friend facing difficulty: 'I support you.'",
+    "deeds": ["Say 'I support you' once today"]
+  },
+  {
+    "id": 252,
+    "title": "Help with notes",
+    "text": "Photocopy or share notes for someone absent.",
+    "deeds": ["Share notes with one person today"]
+  },
+  {
+    "id": 253,
+    "title": "Say 'I enjoyed that'",
+    "text": "When someone cooks, presents, or helps — say 'I enjoyed that.'",
+    "deeds": ["Say 'I enjoyed that' once today"]
+  },
+  {
+    "id": 254,
+    "title": "Offer to save seat",
+    "text": "Reserve a chair for a friend running late.",
+    "deeds": ["Save a seat once today"]
+  },
+  {
+    "id": 255,
+    "title": "Say 'You are capable'",
+    "text": "Encourage someone doubting themselves: 'You are capable.'",
+    "deeds": ["Say 'You are capable' once today"]
+  },
+  {
+    "id": 256,
+    "title": "Offer to share umbrella",
+    "text": "Rainy day? Share your umbrella with someone nearby.",
+    "deeds": ["Share umbrella once today"]
+  },
+  {
+    "id": 257,
+    "title": "Say 'You improved'",
+    "text": "When you see growth, say 'You improved a lot.'",
+    "deeds": ["Say 'You improved' once today"]
+  },
+  {
+    "id": 258,
+    "title": "Offer to close bottle",
+    "text": "If someone forgets to close a bottle, do it for them politely.",
+    "deeds": ["Close or remind about bottle once today"]
+  },
+  {
+    "id": 259,
+    "title": "Say 'I appreciate this'",
+    "text": "Show gratitude for even the smallest act: 'I appreciate this.'",
+    "deeds": ["Say 'I appreciate this' once today"]
+  },
+  {
+    "id": 260,
+    "title": "Encourage smile",
+    "text": "When someone smiles, reflect it back warmly.",
+    "deeds": ["Smile back once today"]
+  },
+  {
+    "id": 261,
+    "title": "Say 'That was smart'",
+    "text": "Notice a clever act and say 'That was smart!'",
+    "deeds": ["Say 'That was smart' once today"]
+  },
+  {
+    "id": 262,
+    "title": "Help pack",
+    "text": "Offer to pack books, bags, or materials for someone.",
+    "deeds": ["Help pack once today"]
+  },
+  {
+    "id": 263,
+    "title": "Say 'I am thankful'",
+    "text": "Tell someone directly, 'I am thankful for you.'",
+    "deeds": ["Say 'I am thankful' once today"]
+  },
+  {
+    "id": 264,
+    "title": "Offer to hold place",
+    "text": "Stand in line for a friend briefly if they step out.",
+    "deeds": ["Hold a place once today"]
+  },
+  {
+    "id": 265,
+    "title": "Say 'You encourage me'",
+    "text": "Tell someone their kindness motivates you.",
+    "deeds": ["Say 'You encourage me' once today"]
+  },
+  {
+    "id": 266,
+    "title": "Help close bag",
+    "text": "If someone’s bag is open, remind or help close it.",
+    "deeds": ["Close or remind about bag once today"]
+  },
+  {
+    "id": 267,
+    "title": "Say 'That was nice'",
+    "text": "Acknowledge a small gesture: 'That was nice.'",
+    "deeds": ["Say 'That was nice' once today"]
+  },
+  {
+    "id": 268,
+    "title": "Offer to guide",
+    "text": "Guide someone younger through a small process.",
+    "deeds": ["Guide one person once today"]
+  },
+  {
+    "id": 269,
+    "title": "Say 'You make me smile'",
+    "text": "Tell someone they make you smile — it brightens their mood.",
+    "deeds": ["Say 'You make me smile' once today"]
+  },
+  {
+    "id": 270,
+    "title": "Encourage respect",
+    "text": "Praise when someone respects others' opinions.",
+    "deeds": ["Acknowledge respect once today"]
+  },
+  {
+    "id": 271,
+    "title": "Say 'That was helpful'",
+    "text": "Recognize small help with 'That was helpful.'",
+    "deeds": ["Say 'That was helpful' once today"]
+  },
+  {
+    "id": 272,
+    "title": "Offer umbrella shade",
+    "text": "On a hot day, share your umbrella with a peer.",
+    "deeds": ["Offer shade once today"]
+  },
+  {
+    "id": 273,
+    "title": "Say 'You did great'",
+    "text": "Encourage any completed task: 'You did great.'",
+    "deeds": ["Say 'You did great' once today"]
+  },
+  {
+    "id": 274,
+    "title": "Offer to share book",
+    "text": "If a classmate forgot, share your textbook.",
+    "deeds": ["Share your book once today"]
+  },
+  {
+    "id": 275,
+    "title": "Say 'I respect that'",
+    "text": "When someone shows courage, say 'I respect that.'",
+    "deeds": ["Say 'I respect that' once today"]
+  },
+  {
+    "id": 276,
+    "title": "Encourage effort",
+    "text": "Notice someone studying or working and encourage it.",
+    "deeds": ["Encourage effort once today"]
+  },
+  {
+    "id": 277,
+    "title": "Say 'Good evening'",
+    "text": "Greet someone politely in the evening.",
+    "deeds": ["Say 'Good evening' once today"]
+  },
+  {
+    "id": 278,
+    "title": "Offer to tidy desk",
+    "text": "If a desk looks messy, help organize it for a moment.",
+    "deeds": ["Tidy one desk once today"]
+  },
+  {
+    "id": 279,
+    "title": "Say 'That was kind'",
+    "text": "Notice an act of kindness and call it out.",
+    "deeds": ["Say 'That was kind' once today"]
+  },
+  {
+    "id": 280,
+    "title": "Help carry water",
+    "text": "Carry or pass a water jug/bottle for someone.",
+    "deeds": ["Carry water once today"]
+  },
+  {
+    "id": 281,
+    "title": "Say 'You made it better'",
+    "text": "Acknowledge someone’s effort with: 'You made it better.'",
+    "deeds": ["Say 'You made it better' once today"]
+  },
+  {
+    "id": 282,
+    "title": "Offer to share seat",
+    "text": "On a bench, adjust to make space for another.",
+    "deeds": ["Share seat space once today"]
+  },
+  {
+    "id": 283,
+    "title": "Say 'I am grateful'",
+    "text": "Express gratitude directly: 'I am grateful for you.'",
+    "deeds": ["Say 'I am grateful' once today"]
+  },
+  {
+    "id": 284,
+    "title": "Encourage politeness",
+    "text": "Notice kind speech and acknowledge it.",
+    "deeds": ["Encourage politeness once today"]
+  },
+  {
+    "id": 285,
+    "title": "Say 'Well done team'",
+    "text": "After group work, praise the whole team.",
+    "deeds": ["Say 'Well done team' once today"]
+  },
+  {
+    "id": 286,
+    "title": "Offer to share charger",
+    "text": "If someone’s phone is low, lend your charger.",
+    "deeds": ["Share charger once today"]
+  },
+  {
+    "id": 287,
+    "title": "Say 'You made progress'",
+    "text": "Notice growth: 'You’ve made progress.'",
+    "deeds": ["Say 'You made progress' once today"]
+  },
+  {
+    "id": 288,
+    "title": "Offer to share earphones",
+    "text": "Safely let a friend listen with one earbud.",
+    "deeds": ["Share earphones once today"]
+  },
+  {
+    "id": 289,
+    "title": "Say 'I trust your view'",
+    "text": "Show respect: 'I trust your view on this.'",
+    "deeds": ["Say 'I trust your view' once today"]
+  },
+  {
+    "id": 290,
+    "title": "Help carry books",
+    "text": "Offer to carry books for someone struggling.",
+    "deeds": ["Carry books once today"]
+  },
+  {
+    "id": 291,
+    "title": "Say 'That was thoughtful'",
+    "text": "Notice care in action: 'That was thoughtful.'",
+    "deeds": ["Say 'That was thoughtful' once today"]
+  },
+  {
+    "id": 292,
+    "title": "Offer to refill glass",
+    "text": "Ask: 'Should I refill your glass too?'",
+    "deeds": ["Refill someone’s glass once today"]
+  },
+  {
+    "id": 293,
+    "title": "Say 'I admire your effort'",
+    "text": "Praise persistence: 'I admire your effort.'",
+    "deeds": ["Say 'I admire your effort' once today"]
+  },
+  {
+    "id": 294,
+    "title": "Offer to share snack",
+    "text": "Break food and share with someone nearby.",
+    "deeds": ["Share snack once today"]
+  },
+  {
+    "id": 295,
+    "title": "Say 'I value this'",
+    "text": "Acknowledge small help: 'I value this.'",
+    "deeds": ["Say 'I value this' once today"]
+  },
+  {
+    "id": 296,
+    "title": "Help shut door",
+    "text": "Close a door quietly behind you for others.",
+    "deeds": ["Shut door once today"]
+  },
+  {
+    "id": 297,
+    "title": "Say 'Good going'",
+    "text": "Motivate by saying, 'Good going!'",
+    "deeds": ["Say 'Good going' once today"]
+  },
+  {
+    "id": 298,
+    "title": "Offer to guide junior",
+    "text": "Help a junior with a short tip.",
+    "deeds": ["Guide one junior once today"]
+  },
+  {
+    "id": 299,
+    "title": "Say 'That was caring'",
+    "text": "Notice care and acknowledge: 'That was caring.'",
+    "deeds": ["Say 'That was caring' once today"]
+  },
+  {
+    "id": 300,
+    "title": "Offer to share water",
+    "text": "Pour or offer water to someone before yourself.",
+    "deeds": ["Offer water once today"]
+  },
+  {
+    "id": 301,
+    "title": "Say 'You’ve grown'",
+    "text": "Tell someone you’ve noticed their growth.",
+    "deeds": ["Say 'You’ve grown' once today"]
+  },
+  {
+    "id": 302,
+    "title": "Help open door",
+    "text": "Open a door for someone carrying items.",
+    "deeds": ["Open door once today"]
+  },
+  {
+    "id": 303,
+    "title": "Say 'That was respectful'",
+    "text": "Call out respect when you see it.",
+    "deeds": ["Say 'That was respectful' once today"]
+  },
+  {
+    "id": 304,
+    "title": "Offer to explain step",
+    "text": "If someone is stuck, explain one step gently.",
+    "deeds": ["Explain one step today"]
+  },
+  {
+    "id": 305,
+    "title": "Say 'Thanks a lot'",
+    "text": "Express extra gratitude: 'Thanks a lot!'",
+    "deeds": ["Say 'Thanks a lot' once today"]
+  },
+  {
+    "id": 306,
+    "title": "Help pick object",
+    "text": "If someone drops something, pick it up.",
+    "deeds": ["Pick one dropped object today"]
+  },
+  {
+    "id": 307,
+    "title": "Say 'I admire your courage'",
+    "text": "When someone shows bravery, praise it.",
+    "deeds": ["Say 'I admire your courage' once today"]
+  },
+  {
+    "id": 308,
+    "title": "Offer a kind smile",
+    "text": "Smile at someone who seems low.",
+    "deeds": ["Smile kindly once today"]
+  },
+  {
+    "id": 309,
+    "title": "Say 'That was helpful to me'",
+    "text": "Acknowledge help: 'That was helpful to me.'",
+    "deeds": ["Say 'That was helpful to me' once today"]
+  },
+  {
+    "id": 310,
+    "title": "Offer to share charger",
+    "text": "Let a peer charge their device briefly.",
+    "deeds": ["Share charger once today"]
+  },
+  {
+    "id": 311,
+    "title": "Say 'I appreciate your kindness'",
+    "text": "Notice a kind act and verbalize it.",
+    "deeds": ["Say 'I appreciate your kindness' once today"]
+  },
+  {
+    "id": 312,
+    "title": "Help adjust seat",
+    "text": "If someone struggles, help adjust their seat.",
+    "deeds": ["Adjust seat once today"]
+  },
+  {
+    "id": 313,
+    "title": "Say 'That means a lot'",
+    "text": "When someone helps, tell them 'That means a lot.'",
+    "deeds": ["Say 'That means a lot' once today"]
+  },
+  {
+    "id": 314,
+    "title": "Offer to share music",
+    "text": "Play a song someone likes during a break.",
+    "deeds": ["Play or share music once today"]
+  },
+  {
+    "id": 315,
+    "title": "Say 'I admire your patience'",
+    "text": "Notice patience and praise it.",
+    "deeds": ["Say 'I admire your patience' once today"]
+  },
+  {
+    "id": 316,
+    "title": "Help clean board",
+    "text": "Erase or clean a board for the next person.",
+    "deeds": ["Clean one board once today"]
+  },
+  {
+    "id": 317,
+    "title": "Say 'Good choice'",
+    "text": "Notice a healthy choice and praise it.",
+    "deeds": ["Say 'Good choice' once today"]
+  },
+  {
+    "id": 318,
+    "title": "Offer to share taxi",
+    "text": "If safe, share a ride with a friend going same way.",
+    "deeds": ["Offer to share ride once today"]
+  },
+  {
+    "id": 319,
+    "title": "Say 'I am with you'",
+    "text": "Show solidarity: 'I am with you.'",
+    "deeds": ["Say 'I am with you' once today"]
+  },
+    {
+      "id": 320,
+      "title": "Offer quick help",
+      "text": "If someone needs assistance, offer your help promptly.",
+      "deeds": ["Offer quick help once today"]
+    },
+  {
+    "id": 320,
+    "title": "Offer quick help",
+    "text": "If someone struggles briefly, lend a hand without delay — a small help can change their day.",
+    "deeds": ["Offer quick help to someone today"]
+  },
+  {
+    "id": 321,
+    "title": "Say 'Thanks for listening'",
+    "text": "When someone listens to you, thank them — it values their time and care.",
+    "deeds": ["Tell one listener 'Thanks for listening' today"]
+  },
+  {
+    "id": 322,
+    "title": "Offer a small favor",
+    "text": "Do one tiny favor without being asked — fetch, hold, or pass something.",
+    "deeds": ["Do one small favor for someone today"]
+  },
+  {
+    "id": 323,
+    "title": "Say 'You made my day'",
+    "text": "If someone did something kind, tell them 'You made my day.' It encourages more kindness.",
+    "deeds": ["Tell one person 'You made my day' today"]
+  },
+  {
+    "id": 324,
+    "title": "Offer to proofread",
+    "text": "Offer to glance over a short message or note for a friend — it saves them time.",
+    "deeds": ["Proofread one short message for someone today"]
+  },
+  {
+    "id": 325,
+    "title": "Say 'I value you'",
+    "text": "Share a short sentence: 'I value you' to someone who matters to you.",
+    "deeds": ["Tell one person 'I value you' today"]
+  },
+  {
+    "id": 326,
+    "title": "Help with small errand",
+    "text": "Offer to pick up a small item or drop something off when you can.",
+    "deeds": ["Run one small errand for someone today"]
+  },
+  {
+    "id": 327,
+    "title": "Say 'You helped me grow'",
+    "text": "Acknowledge someone who contributed to your learning: 'You helped me grow.'",
+    "deeds": ["Tell one person they helped you grow today"]
+  },
+  {
+    "id": 328,
+    "title": "Offer to share notes",
+    "text": "If you take good notes, share them with someone who missed class.",
+    "deeds": ["Share notes with one student today"]
+  },
+  {
+    "id": 329,
+    "title": "Say 'That was thoughtful'",
+    "text": "Call out thoughtfulness when you see it — it reinforces kind behaviour.",
+    "deeds": ["Tell someone 'That was thoughtful' today"]
+  },
+  {
+    "id": 330,
+    "title": "Help someone stand",
+    "text": "Offer your hand or help to someone who is getting up from a seat or ground.",
+    "deeds": ["Assist one person to stand up today"]
+  },
+  {
+    "id": 331,
+    "title": "Say 'You did well today'",
+    "text": "End the day by encouraging someone with 'You did well today.'",
+    "deeds": ["Tell someone 'You did well today' before night"]
+  },
+  {
+    "id": 332,
+    "title": "Offer to water plants",
+    "text": "If you have time, water a community or shared plant to keep it healthy.",
+    "deeds": ["Water one shared plant today"]
+  },
+  {
+    "id": 333,
+    "title": "Say 'I respect your choice'",
+    "text": "When someone makes a personal choice, affirm it kindly: 'I respect your choice.'",
+    "deeds": ["Tell one person 'I respect your choice' today"]
+  },
+  {
+    "id": 334,
+    "title": "Help carry a parcel",
+    "text": "If a delivery arrives and the recipient is away, help hold or move the parcel safely.",
+    "deeds": ["Hold or move one parcel safely today"]
+  },
+  {
+    "id": 335,
+    "title": "Say 'You made an impact'",
+    "text": "Let someone know their small act mattered: 'You made an impact.'",
+    "deeds": ["Tell one person 'You made an impact' today"]
+  },
+  {
+    "id": 336,
+    "title": "Offer to teach a tip",
+    "text": "Show a friend a short, useful trick you use — generous teaching helps others.",
+    "deeds": ["Teach one useful tip to someone today"]
+  },
+  {
+    "id": 337,
+    "title": "Say 'I’m glad you’re here'",
+    "text": "Express presence: 'I’m glad you’re here' to someone sharing a moment.",
+    "deeds": ["Tell someone 'I’m glad you’re here' today"]
+  },
+  {
+    "id": 338,
+    "title": "Help tidy common area",
+    "text": "Pick one item and return it to its place in a shared space.",
+    "deeds": ["Return one stray item to its place today"]
+  },
+  {
+    "id": 339,
+    "title": "Say 'You’re appreciated'",
+    "text": "Say plainly 'You’re appreciated' to someone who helped you today.",
+    "deeds": ["Tell one person 'You’re appreciated' today"]
+  },
+  {
+    "id": 340,
+    "title": "Offer to hold a place",
+    "text": "If a friend steps away briefly, hold their spot in a line or seat.",
+    "deeds": ["Hold a place for someone once today"]
+  },
+  {
+    "id": 341,
+    "title": "Say 'I believe in you'",
+    "text": "Give confidence with 'I believe in you' when someone needs courage.",
+    "deeds": ["Tell one person 'I believe in you' today"]
+  },
+  {
+    "id": 342,
+    "title": "Offer brief encouragement",
+    "text": "Send a short message like 'You’ve got this' to someone tackling something hard.",
+    "deeds": ["Send one encouraging message today"]
+  },
+  {
+    "id": 343,
+    "title": "Say 'Thanks for your effort'",
+    "text": "Recognize work with 'Thanks for your effort' even if results vary.",
+    "deeds": ["Thank someone for their effort today"]
+  },
+  {
+    "id": 344,
+    "title": "Offer to help load",
+    "text": "Help place something in a car or vehicle if someone is struggling.",
+    "deeds": ["Help load one item today"]
+  },
+  {
+    "id": 345,
+    "title": "Say 'I appreciate your honesty'",
+    "text": "When someone is honest, acknowledge it: 'I appreciate your honesty.'",
+    "deeds": ["Tell someone 'I appreciate your honesty' today"]
+  },
+  {
+    "id": 346,
+    "title": "Offer a quick compliment",
+    "text": "Give a crisp compliment — 'That color suits you' — and move on.",
+    "deeds": ["Give one quick compliment today"]
+  },
+  {
+    "id": 347,
+    "title": "Say 'You made me smile today'",
+    "text": "Tell someone they brightened your day with a small act or word.",
+    "deeds": ["Tell someone 'You made me smile today'"]
+  },
+  {
+    "id": 348,
+    "title": "Offer a short hand",
+    "text": "Help someone open a jar, lift a lid, or untangle a cord for a minute.",
+    "deeds": ["Help someone with a small task today"]
+  },
+  {
+    "id": 349,
+    "title": "Say 'You’re thoughtful'",
+    "text": "Spot thoughtfulness and name it — people value being seen.",
+    "deeds": ["Tell someone 'You’re thoughtful' today"]
+  },
+  {
+    "id": 350,
+    "title": "Offer to share a tip",
+    "text": "Share one life tip that makes routines easier — simple help is powerful.",
+    "deeds": ["Share one practical tip with someone today"]
+  },
+  {
+    "id": 351,
+    "title": "Say 'You’ve been helpful'",
+    "text": "Let a helper know they made things easier: 'You’ve been helpful.'",
+    "deeds": ["Tell one helper they were helpful today"]
+  },
+  {
+    "id": 352,
+    "title": "Offer to help arrange",
+    "text": "If a shelf or table is messy, spend two minutes to arrange it.",
+    "deeds": ["Arrange one small area for others today"]
+  },
+  {
+    "id": 353,
+    "title": "Say 'Your time matters'",
+    "text": "Acknowledge someone’s invested time: 'Your time matters to me.'",
+    "deeds": ["Tell someone 'Your time matters' today"]
+  },
+  {
+    "id": 354,
+    "title": "Offer a spare pen",
+    "text": "Keep a spare pen on hand and lend it to someone who needs one.",
+    "deeds": ["Lend a pen to someone today"]
+  },
+  {
+    "id": 355,
+    "title": "Say 'That helped me a lot'",
+    "text": "When an act was meaningful, tell the person it helped you a lot.",
+    "deeds": ["Tell someone 'That helped me a lot' today"]
+  },
+  {
+    "id": 356,
+    "title": "Offer a quick note",
+    "text": "Leave a short note of thanks or encouragement on someone’s desk.",
+    "deeds": ["Leave one encouraging note today"]
+  },
+  {
+    "id": 357,
+    "title": "Say 'I admire your patience'",
+    "text": "When someone waits calmly, acknowledge their patience with kind words.",
+    "deeds": ["Praise patience once today"]
+  },
+  {
+    "id": 358,
+    "title": "Offer to help carry kids’ items",
+    "text": "Hold a stroller bag or small toy for a parent for a moment.",
+    "deeds": ["Help a parent with a small item today"]
+  },
+  {
+    "id": 359,
+    "title": "Say 'You matter to me'",
+    "text": "Tell someone plainly that they matter to you — the words have weight.",
+    "deeds": ["Tell one person 'You matter to me' today"]
+  },
+  {
+    "id": 360,
+    "title": "Offer a warm goodbye",
+    "text": "When parting, give a warm goodbye — it leaves a good last impression.",
+    "deeds": ["Say a warm goodbye to someone today"]
+  },
+  {
+    "id": 361,
+    "title": "Say 'I’m grateful for you'",
+    "text": "Express deep gratitude to someone who supports you often.",
+    "deeds": ["Tell one person 'I’m grateful for you' today"]
+  },
+  {
+    "id": 362,
+    "title": "Offer to help with groceries",
+    "text": "If a neighbor needs help bringing groceries inside, offer a hand.",
+    "deeds": ["Help carry groceries for someone today"]
+  },
+  {
+    "id": 363,
+    "title": "Say 'You made a difference'",
+    "text": "Acknowledge impact: 'You made a difference today.'",
+    "deeds": ["Tell one person 'You made a difference' today"]
+  },
+  {
+    "id": 364,
+    "title": "Offer a final thanks",
+    "text": "Before sleep, thank one person who supported your day.",
+    "deeds": ["Say thanks to one person tonight"]
+  },
+  {
+    "id": 365,
+    "title": "Celebrate small kindness",
+    "text": "Reflect on the year of small deeds and celebrate the habit you built.",
+    "deeds": ["Do one small act of kindness and reflect on it"]
+  }
+]
 ]
