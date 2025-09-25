@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 /* CONFIG */
 const START_DATE_ISO = "2025-09-23"; // Change to your chosen day-1 (YYYY-MM-DD)
 const STORAGE_KEY = "sacredverse_v1_progress";
+const META_KEY = "sacredverse_v1_meta";
 
 /* fallback sample content (if fetch fails) */
 const fallbackContent = [
@@ -49,6 +50,27 @@ function msUntilNextISTMidnight() {
   return nextMid - now;
 }
 
+/* --- helper: meta storage --- */
+/*
+meta shape:
+{
+  lastCompletedDate: "YYYY-MM-DD", // the most recent IST date when user completed at least one deed
+  streak: number,                  // consecutive days count
+  totalPoints: number              // total completed deed marks across all time (per-device)
+}
+*/
+
+function readMeta() {
+  try {
+    return JSON.parse(localStorage.getItem(META_KEY)) || { lastCompletedDate: null, streak: 0, totalPoints: 0 };
+  } catch {
+    return { lastCompletedDate: null, streak: 0, totalPoints: 0 };
+  }
+}
+function writeMeta(meta) {
+  localStorage.setItem(META_KEY, JSON.stringify(meta));
+}
+
 export default function App() {
   const [content, setContent] = useState([]);
   const [todayIndex, setTodayIndex] = useState(0);
@@ -60,6 +82,7 @@ export default function App() {
     }
   });
 
+  const [meta, setMeta] = useState(() => readMeta());
   const [joyMessage, setJoyMessage] = useState(null);
 
   // fetch content.json
@@ -94,13 +117,80 @@ export default function App() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
   }, [progress]);
 
+  // persist meta when it changes
+  useEffect(() => {
+    writeMeta(meta);
+  }, [meta]);
+
+  // helper: count total completed deeds (points) across all days from progress
+  function computeTotalPoints(prog) {
+    let sum = 0;
+    Object.values(prog || {}).forEach(dayObj => {
+      if (!dayObj) return;
+      sum += Object.values(dayObj).filter(Boolean).length;
+    });
+    return sum;
+  }
+
+  // helper: whether today already has at least one completed deed
+  function isTodayCompleted(prog, idx) {
+    const day = prog && prog[idx];
+    if (!day) return false;
+    return Object.values(day).some(Boolean);
+  }
+
   function toggleDeed(dayIdx, deedIdx) {
     setProgress((prev) => {
       const copy = { ...prev };
       if (!copy[dayIdx]) copy[dayIdx] = {};
+      // flip
       copy[dayIdx][deedIdx] = !copy[dayIdx][deedIdx];
+
+      // After flipping, update meta (streak & total points) only when marking a deed to DONE
+      const wasCompletedBefore = Object.values(prev[dayIdx] || {}).some(Boolean);
+      const nowCompleted = Object.values(copy[dayIdx] || {}).some(Boolean);
+
+      // totalPoints: compute from copy
+      const newTotalPoints = computeTotalPoints(copy);
+
+      // clone previous meta to update
+      const newMeta = { ...readMeta(), totalPoints: newTotalPoints };
+
+      const todayDatePart = getISTDatePart(new Date());
+      const yesterday = (dateStr) => {
+        // returns "YYYY-MM-DD" string for dateStr - 1 day (in IST)
+        const base = new Date(dateStr + "T00:00:00+05:30");
+        const prev = new Date(base.getTime() - 24 * 3600 * 1000);
+        return getISTDatePart(prev);
+      };
+
+      // Only take action when the day transitions from not-completed -> completed
+      if (!wasCompletedBefore && nowCompleted) {
+        // user just completed today for the first time
+        const lastDate = newMeta.lastCompletedDate; // could be null
+        if (lastDate) {
+          // if lastDate was yesterday (consecutive), increment streak; otherwise reset to 1
+          if (lastDate === yesterday(todayDatePart)) {
+            newMeta.streak = (newMeta.streak || 0) + 1;
+          } else if (lastDate === todayDatePart) {
+            // already same day (unlikely here), keep streak
+          } else {
+            newMeta.streak = 1;
+          }
+        } else {
+          newMeta.streak = 1;
+        }
+        newMeta.lastCompletedDate = todayDatePart;
+      } else {
+        // If user unchecks (nowCompleted false) we do not decrease streak to keep UX forgiving.
+        // Optionally you could handle strict decrement here.
+      }
+
+      // Save meta and progress
+      setMeta(newMeta);
       return copy;
     });
+
     setJoyMessage("Lovely — you did a good thing! 🌟");
     setTimeout(() => setJoyMessage(null), 1500);
   }
@@ -111,7 +201,7 @@ export default function App() {
 
   const today = content[todayIndex];
 
-  // compute total done today (for the small header Good Points)
+  // compute total done today (for display)
   const totalDoneToday = progress[todayIndex]
     ? Object.values(progress[todayIndex]).filter(Boolean).length
     : 0;
@@ -119,7 +209,7 @@ export default function App() {
   return (
     <div className="wrap">
       <div className="card">
-        {/* Header with brand + meta (Day / Good Points) */}
+        {/* Header with brand + meta (Day / Good Points / Streak / Total Points) */}
         <header className="header">
           <div className="brand" style={{ alignItems: "center" }}>
             <div className="logo-round" aria-hidden>
@@ -135,8 +225,17 @@ export default function App() {
             <div style={{ fontSize: 13, color: "var(--muted)" }}>
               Day <strong style={{ color: "var(--text)", fontWeight: 700 }}>{todayIndex + 1}</strong> / {content.length}
             </div>
-            <div style={{ marginTop: 6, fontSize: 13 }}>
-              Good Points: <strong style={{ color: "var(--green-500)" }}>{totalDoneToday}</strong>
+
+            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>
+              <div style={{ fontSize: 13, color: "var(--muted)" }}>
+                Good Points: <strong style={{ color: "var(--green-500)" }}>{totalDoneToday}</strong>
+              </div>
+              <div style={{ fontSize: 13, color: "var(--muted)" }}>
+                🔥 Streak: <strong style={{ color: "var(--green-500)" }}>{meta.streak || 0}</strong>
+              </div>
+              <div style={{ fontSize: 13, color: "var(--muted)" }}>
+                ✨ Total: <strong style={{ color: "var(--green-500)" }}>{meta.totalPoints || 0}</strong>
+              </div>
             </div>
           </div>
         </header>
