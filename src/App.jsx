@@ -111,19 +111,43 @@ export default function App() {
 
   const today = content[todayIndex];
 
+  // compute total done today (for the small header Good Points)
+  const totalDoneToday = progress[todayIndex]
+    ? Object.values(progress[todayIndex]).filter(Boolean).length
+    : 0;
+
   return (
     <div className="wrap">
       <div className="card">
+        {/* Header with brand + meta (Day / Good Points) */}
         <header className="header">
-          <div className="logo">SacredVerse</div>
-          <div className="meta">Day {todayIndex + 1} / {content.length}</div>
+          <div className="brand" style={{ alignItems: "center" }}>
+            <div className="logo-round" aria-hidden>
+              SV
+            </div>
+            <div>
+              <div className="title">SacredVerse</div>
+              <div style={{ fontSize: 13, color: "var(--muted)" }}>Daily kindness in small steps</div>
+            </div>
+          </div>
+
+          <div className="meta" style={{ textAlign: "right" }}>
+            <div style={{ fontSize: 13, color: "var(--muted)" }}>
+              Day <strong style={{ color: "var(--text)", fontWeight: 700 }}>{todayIndex + 1}</strong> / {content.length}
+            </div>
+            <div style={{ marginTop: 6, fontSize: 13 }}>
+              Good Points: <strong style={{ color: "var(--green-500)" }}>{totalDoneToday}</strong>
+            </div>
+          </div>
         </header>
 
-        <main>
-          <h2 className="title">{today.title}</h2>
-          <p className="text">{today.text}</p>
+        <main className="content">
+          <section className="mainText">
+            <h2 className="headline">{today.title}</h2>
+            <p className="copy">{today.text}</p>
+          </section>
 
-          <div className="deeds">
+          <aside className="deeds">
             {today.deeds.map((d, i) => {
               const checked = progress[todayIndex] && progress[todayIndex][i];
               return (
@@ -133,17 +157,22 @@ export default function App() {
                     onClick={() => toggleDeed(todayIndex, i)}
                     aria-pressed={!!checked}
                   >
+                    <span className="dot" aria-hidden></span>
                     {checked ? "✓ Done" : "Mark done"}
                   </button>
                   <div className="deed-text">{d}</div>
                 </div>
               );
             })}
-          </div>
+          </aside>
         </main>
 
         <footer className="footer">
-          {joyMessage && <div className="joy">{joyMessage}</div>}
+          {joyMessage && (
+            <div className="joy" role="status" aria-live="polite">
+              {joyMessage}
+            </div>
+          )}
           <small className="note">Small actions. Big kindness.</small>
         </footer>
       </div>

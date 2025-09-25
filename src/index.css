@@ -1,44 +1,151 @@
 :root{
-  --bg1: #fff8f0;
-  --bg2: #f7fbff;
+  --bg: #fbfcfb;
   --card: #ffffff;
-  --accent: #56C596;
+  --green-500: #2fa66a; /* primary */
+  --green-400: #56C596; /* accent */
+  --green-300: #8EE3A1; /* soft */
   --muted: #6b7280;
-  --shadow: 0 8px 28px rgba(20,20,40,0.08);
+  --text: #0f1724;
+  --shadow: 0 10px 30px rgba(15,23,36,0.06);
+  --glass: rgba(47,166,106,0.06);
+  --radius: 14px;
+  --radius-sm: 10px;
+  --max-width: 720px;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  color-scheme: light;
 }
+
+/* reset */
 *{box-sizing:border-box}
-body,html,#root{height:100%;margin:0}
+html,body,#root{height:100%;margin:0}
 body{
-  background: linear-gradient(180deg,var(--bg1),var(--bg2));
+  background: linear-gradient(180deg, var(--bg), #f7fbff);
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:24px;
+  padding:28px;
+  color:var(--text);
 }
-.wrap{width:100%;max-width:540px}
+
+/* container */
+.wrap{
+  width:100%;
+  max-width:var(--max-width);
+  padding:20px;
+}
+
+/* main card */
 .card{
   background:var(--card);
-  border-radius:14px;
-  padding:20px;
+  border-radius:var(--radius);
+  padding:22px;
   box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  overflow:hidden;
 }
-.header{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-.logo{font-weight:700;font-size:20px}
-.meta{font-size:12px;color:var(--muted)}
-.title{margin:0 0 10px 0;font-size:20px}
-.text{margin:0 0 14px 0;color:#333;line-height:1.5}
-.deeds{margin-top:8px}
-.deed-row{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+
+/* header row */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.logo-round{
+  width:44px;height:44px;border-radius:10px;
+  display:inline-grid;place-items:center;
+  background:linear-gradient(180deg,var(--green-300),var(--green-500));
+  color:white;font-weight:700;font-size:18px;box-shadow:0 6px 18px rgba(47,166,106,0.12);
+}
+.title{
+  font-size:18px;font-weight:700;
+}
+.meta{
+  font-size:13px;color:var(--muted);
+}
+
+/* content */
+.content{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+.mainText{
+  flex:1 1 380px;
+}
+.mainText .headline{font-size:20px;margin:0 0 8px 0}
+.mainText .copy{margin:0;color:#334155;line-height:1.6;font-size:15px}
+
+/* deed area */
+.deeds{
+  width:320px;
+  min-width:260px;
+  background:linear-gradient(180deg, rgba(47,166,106,0.02), rgba(47,166,106,0.01));
+  border-radius:12px;
+  padding:14px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+.deed-row{display:flex;gap:12px;align-items:center}
+.deed-text{flex:1;color:#24303b;font-size:14px}
+
+/* primary button (Mark Done) */
 .deed-btn{
-  border:0;padding:10px 12px;border-radius:10px;cursor:pointer;background:#f0f3f5;font-weight:600;
+  border:0;padding:10px 14px;border-radius:12px;cursor:pointer;
+  background:transparent;font-weight:700;letter-spacing:0.2px;
+  display:inline-flex;align-items:center;gap:8px;
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease;
+  box-shadow:none;border:1px solid rgba(15,23,36,0.06);
+  background: linear-gradient(180deg,#fff,#fbfffb);
 }
-.deed-btn.checked{background:linear-gradient(90deg,#8EE3A1,#56C596);color:#fff;transform:scale(1.02)}
-.deed-text{flex:1;color:#333}
-.footer{display:flex;justify-content:space-between;align-items:center;margin-top:8px}
-.joy{color:#2b8a3e;font-weight:700}
-.note{color:var(--muted);font-size:13px}
-@media (max-width:520px){
-  .card{padding:16px}
-  .logo{font-size:18px}
+.deed-btn .dot{
+  width:8px;height:8px;border-radius:50%;background:var(--green-400);
+  box-shadow:0 6px 12px rgba(86,197,150,0.12);
 }
+/* checked state */
+.deed-btn.checked{
+  background:linear-gradient(90deg,var(--green-300),var(--green-400));
+  color:white;border:0;transform:translateY(-2px) scale(1.02);
+  box-shadow:0 10px 30px rgba(47,166,106,0.12);
+}
+
+/* little success toast */
+.joy{
+  color:var(--green-500);
+  font-weight:700;
+  background:var(--glass);
+  padding:8px 12px;border-radius:999px;font-size:13px;
+  display:inline-block;
+  transform-origin:center;
+  animation:joy-pop .9s ease;
+}
+@keyframes joy-pop{
+  0%{transform:scale(.88);opacity:0}
+  60%{transform:scale(1.04);opacity:1}
+  100%{transform:scale(1);opacity:1}
+}
+
+/* footer small */
+.footer{display:flex;justify-content:space-between;align-items:center;gap:12px;font-size:13px;color:var(--muted)}
+.note{font-size:13px;color:var(--muted)}
+
+/* responsive */
+@media (max-width:860px){
+  .content{flex-direction:column;}
+  .deeds{width:100%}
+  .mainText{order:2}
+}
+
+/* subtle focus states for accessibility */
+.deed-btn:focus{outline:3px solid rgba(86,197,150,0.16);outline-offset:4px}
