@@ -1,32 +1,362 @@
 [
-  {"id":1,"title":"Greet with kindness","text":"Say a warm 'Good morning' to the watchman or helper you meet today. A small greeting brightens someone's day.","deeds":["Greet one person with a smile and kind words"]},
-  {"id":2,"title":"Call home","text":"Call a parent or elder and tell them you love them. It takes 30 seconds but means the world.","deeds":["Call and say 'I love you' or ask how they are"]},
-  {"id":3,"title":"Share a compliment","text":"Give a genuine compliment — to a peer, a colleague or a stranger. It lifts morale.","deeds":["Give a sincere compliment to one person"]},
-  {"id":4,"title":"Help a hand","text":"Offer to help carry a small burden — a bag or door. Small help shows big respect.","deeds":["Help someone carry or hold something briefly"]},
-  {"id":5,"title":"Thankful note","text":"Send one short 'thank you' message to someone who helped you recently.","deeds":["Send a short thank-you message to one person"]},
-  {"id":6,"title":"Listen with intent","text":"Listen fully to someone today without interrupting — let them be heard.","deeds":["Have one mindful conversation and listen fully"]},
-  {"id":7,"title":"Pick up a piece of trash","text":"If you see trash on the street, pick it up. Small care for surroundings matters.","deeds":["Pick up one piece of litter and dispose properly"]},
-  {"id":8,"title":"Smile first","text":"Smiling is contagious. Smile at three people today.","deeds":["Smile genuinely at three different people"]},
-  {"id":9,"title":"Encourage someone","text":"Send an encouraging message to someone who might need it.","deeds":["Send one encouraging note to a friend or colleague"]},
-  {"id":10,"title":"Share your time","text":"Offer 10 minutes of your time to help someone learn or solve something.","deeds":["Spend 10 minutes helping someone without expecting anything"]},
-  {"id":11,"title":"Compliment a stranger","text":"Notice something good in someone (their effort, outfit, work) and tell them.","deeds":["Give a short compliment to a stranger or acquaintance"]},
-  {"id":12,"title":"Be punctual","text":"Arrive on time for one commitment today. Respect for others' time is kindness.","deeds":["Be on time for one meeting or appointment"]},
-  {"id":13,"title":"Forgive a small fault","text":"Let go of a small irritation. Forgiveness clears your heart.","deeds":["Let go of one small irritation without mentioning it"]},
-  {"id":14,"title":"Share a resource","text":"Share an article, tool, or tip that can help someone.","deeds":["Share one useful resource with someone who can benefit"]},
-  {"id":15,"title":"Pay a compliment to service staff","text":"Thank a delivery person, waiter, or helper genuinely.","deeds":["Thank one service person for their help"]},
-  {"id":16,"title":"Send gratitude","text":"Write one line of gratitude to yourself for something you've done this week.","deeds":["Write one sentence of gratitude to yourself"]},
-  {"id":17,"title":"Donate a small item","text":"Give an item you no longer need (clothes, book) to someone who can use it.","deeds":["Donate one small, usable item"]},
-  {"id":18,"title":"Offer reassurance","text":"Ease someone's worry with a short positive word — 'It will be okay'.","deeds":["Offer a reassuring word to one worried person"]},
-  {"id":19,"title":"Respect nature","text":"Water a plant or sweep a small area outside your home.","deeds":["Tend to one plant or clean a small patch outdoors"]},
-  {"id":20,"title":"Share a smile online","text":"Post a kind message or a helpful tip in a group that you are part of.","deeds":["Post one positive or helpful message in an online group"]},
-  {"id":21,"title":"Be patient in traffic","text":"If stuck in a queue, allow space and be calm — patience helps everyone.","deeds":["Practice calm patience in traffic or a queue"]},
-  {"id":22,"title":"Offer a seat","text":"Give up your seat to someone who needs it more on public transport.","deeds":["Offer your seat to someone in need"]},
-  {"id":23,"title":"Teach a quick skill","text":"Share a 2-minute tip or trick that could help a friend in their work.","deeds":["Teach someone one quick useful tip"]},
-  {"id":24,"title":"Pay attention","text":"When someone speaks, put your phone away and give your full attention.","deeds":["Listen to one person without using your phone"]},
-  {"id":25,"title":"Apologize if needed","text":"If you hurt someone recently, say sorry. Small apologies heal big things.","deeds":["Apologize sincerely to someone you upset"]},
-  {"id":26,"title":"Be honest kindly","text":"Give honest feedback that is gentle and helpful.","deeds":["Share one honest-but-kind piece of feedback"]},
-  {"id":27,"title":"Share a meal","text":"Invite someone for a cup of tea or share your snack.","deeds":["Share a small meal or snack with someone"]},
-  {"id":28,"title":"Encourage a young one","text":"Tell a child or junior that they did well today.","deeds":["Give positive feedback to a child or junior"]},
-  {"id":29,"title":"Help plan","text":"Help someone plan one next small step for their task.","deeds":["Help someone make one small plan for a task"]},
-  {"id":30,"title":"Be generous with praise","text":"Praise effort more than result — it builds confidence.","deeds":["Praise someone's effort sincerely"]}
+  {
+    "id": 1,
+    "title": "Greet with kindness",
+    "text": "Say a warm 'Good morning' to the watchman or helper you meet today. A small greeting brightens someone's day.",
+    "deeds": ["Greet one person with a smile and kind words"]
+  },
+  {
+    "id": 2,
+    "title": "Call home",
+    "text": "Call a parent or elder and tell them you love them. It takes 30 seconds but means the world.",
+    "deeds": ["Call and say 'I love you' or ask how they are"]
+  },
+  {
+    "id": 3,
+    "title": "Encourage a peer",
+    "text": "Say 'You did great' to a classmate or colleague. Small encouragement builds confidence.",
+    "deeds": ["Give one genuine encouragement today"]
+  },
+  {
+    "id": 4,
+    "title": "Hold the door",
+    "text": "If someone is walking behind you, hold the door open. A tiny gesture of care matters.",
+    "deeds": ["Hold the door for one person today"]
+  },
+  {
+    "id": 5,
+    "title": "Say thank you",
+    "text": "When receiving food, delivery, or help — say 'Thank you' sincerely.",
+    "deeds": ["Say thank you to a helper today"]
+  },
+  {
+    "id": 6,
+    "title": "Compliment effort",
+    "text": "Appreciate someone for trying, not just succeeding. Example: 'I like the way you tried.'",
+    "deeds": ["Compliment someone's effort today"]
+  },
+  {
+    "id": 7,
+    "title": "Pick up litter",
+    "text": "If you see a wrapper on the road, pick it up and throw it in a bin.",
+    "deeds": ["Pick up one piece of litter today"]
+  },
+  {
+    "id": 8,
+    "title": "Listen fully",
+    "text": "When a friend talks, put your phone away and just listen.",
+    "deeds": ["Listen to one person without distractions"]
+  },
+  {
+    "id": 9,
+    "title": "Share a smile",
+    "text": "Smile at someone you don’t usually talk to. Smiles are contagious.",
+    "deeds": ["Smile at one stranger today"]
+  },
+  {
+    "id": 10,
+    "title": "Help carry",
+    "text": "If you see someone with heavy bags, offer to help for a short distance.",
+    "deeds": ["Offer to carry or support a small load"]
+  },
+  {
+    "id": 11,
+    "title": "Share your snack",
+    "text": "Break your chocolate or chips and share with a friend.",
+    "deeds": ["Share one snack with someone today"]
+  },
+  {
+    "id": 12,
+    "title": "Check on a friend",
+    "text": "Message a friend you haven’t spoken to in a while. Just say 'How are you?'.",
+    "deeds": ["Send one check-in message to a friend"]
+  },
+  {
+    "id": 13,
+    "title": "Forgive quickly",
+    "text": "If someone makes a small mistake, let it go without reacting.",
+    "deeds": ["Forgive one small mistake today"]
+  },
+  {
+    "id": 14,
+    "title": "Give water",
+    "text": "Offer a glass of water to a guest, colleague, or stranger.",
+    "deeds": ["Offer drinking water to one person today"]
+  },
+  {
+    "id": 15,
+    "title": "Appreciate service staff",
+    "text": "Say 'Thanks bhaiya/didi' to delivery, cleaner, or security staff.",
+    "deeds": ["Appreciate one service worker today"]
+  },
+  {
+    "id": 16,
+    "title": "Be patient",
+    "text": "In traffic or a queue, don’t honk or push. Take a calm breath.",
+    "deeds": ["Practice patience once today"]
+  },
+  {
+    "id": 17,
+    "title": "Encourage a child",
+    "text": "Tell a younger sibling or kid 'You did well' at something.",
+    "deeds": ["Encourage one child today"]
+  },
+  {
+    "id": 18,
+    "title": "Say sorry",
+    "text": "Apologize for a small thing you overlooked. Example: 'Sorry I was late.'",
+    "deeds": ["Apologize sincerely once today"]
+  },
+  {
+    "id": 19,
+    "title": "Donate small",
+    "text": "Give one book, old clothes, or item you don’t need to someone who can use it.",
+    "deeds": ["Donate one item today"]
+  },
+  {
+    "id": 20,
+    "title": "Encourage online",
+    "text": "Post one positive or helpful comment on social media.",
+    "deeds": ["Post one kind comment online"]
+  },
+  {
+    "id": 21,
+    "title": "Stand up for others",
+    "text": "Offer your seat to an elder or pregnant woman in transport.",
+    "deeds": ["Give up your seat once today"]
+  },
+  {
+    "id": 22,
+    "title": "Help with notes",
+    "text": "Share class notes or resources with a peer.",
+    "deeds": ["Share one study resource today"]
+  },
+  {
+    "id": 23,
+    "title": "Encourage efforts",
+    "text": "Tell someone 'I noticed your hard work' — not just the result.",
+    "deeds": ["Praise someone's effort today"]
+  },
+  {
+    "id": 24,
+    "title": "Be punctual",
+    "text": "Arrive on time for class or meeting today.",
+    "deeds": ["Reach on time once today"]
+  },
+  {
+    "id": 25,
+    "title": "Help with tech",
+    "text": "Assist a family member with a phone or app issue.",
+    "deeds": ["Help one person with tech today"]
+  },
+  {
+    "id": 26,
+    "title": "Compliment appearance",
+    "text": "Say 'Nice shirt!' or 'Cool hairstyle!' to someone.",
+    "deeds": ["Give one small compliment today"]
+  },
+  {
+    "id": 27,
+    "title": "Clean your space",
+    "text": "Clear your desk or room for 5 minutes.",
+    "deeds": ["Clean one small area today"]
+  },
+  {
+    "id": 28,
+    "title": "Encourage online learning",
+    "text": "Share a free course link or article with a friend.",
+    "deeds": ["Share one useful link today"]
+  },
+  {
+    "id": 29,
+    "title": "Support a teammate",
+    "text": "Say 'Good job' when someone contributes in class or work.",
+    "deeds": ["Support one teammate today"]
+  },
+  {
+    "id": 30,
+    "title": "Respect elders",
+    "text": "Stand up when an elder enters or greet them warmly.",
+    "deeds": ["Greet or respect one elder today"]
+  },
+  {
+    "id": 31,
+    "title": "Encourage self",
+    "text": "Write one positive line about yourself in a notebook.",
+    "deeds": ["Write one self-encouraging line today"]
+  },
+  {
+    "id": 32,
+    "title": "Reduce plastic",
+    "text": "Say no to one plastic bag and carry your own.",
+    "deeds": ["Refuse one plastic bag today"]
+  },
+  {
+    "id": 33,
+    "title": "Offer directions",
+    "text": "If someone looks lost, help them with directions.",
+    "deeds": ["Guide one person today"]
+  },
+  {
+    "id": 34,
+    "title": "Respect time",
+    "text": "End a phone call or meeting on time.",
+    "deeds": ["Respect one time commitment today"]
+  },
+  {
+    "id": 35,
+    "title": "Wish someone",
+    "text": "Send 'Happy Birthday' or 'Congrats' to someone you know.",
+    "deeds": ["Wish one person today"]
+  },
+  {
+    "id": 36,
+    "title": "Encourage fitness",
+    "text": "Tell a friend 'Great job for working out' or walk with them.",
+    "deeds": ["Encourage someone’s fitness today"]
+  },
+  {
+    "id": 37,
+    "title": "Offer your pen",
+    "text": "In class/office, lend a pen to someone who forgot.",
+    "deeds": ["Lend a pen once today"]
+  },
+  {
+    "id": 38,
+    "title": "Compliment smile",
+    "text": "Say 'You have a nice smile' to someone.",
+    "deeds": ["Compliment one smile today"]
+  },
+  {
+    "id": 39,
+    "title": "Encourage honesty",
+    "text": "When someone admits a mistake, respond kindly.",
+    "deeds": ["Acknowledge honesty once today"]
+  },
+  {
+    "id": 40,
+    "title": "Help the environment",
+    "text": "Switch off one unnecessary light or fan.",
+    "deeds": ["Switch off one appliance today"]
+  },
+  {
+    "id": 41,
+    "title": "Thank teachers",
+    "text": "Say 'Thank you for teaching us' to a teacher/mentor.",
+    "deeds": ["Thank one teacher today"]
+  },
+  {
+    "id": 42,
+    "title": "Support junior",
+    "text": "Guide a junior in school/office with one tip.",
+    "deeds": ["Help one junior today"]
+  },
+  {
+    "id": 43,
+    "title": "Respect workers",
+    "text": "Say 'Namaste' or greet a cleaner/security guard.",
+    "deeds": ["Greet one worker today"]
+  },
+  {
+    "id": 44,
+    "title": "Offer to share",
+    "text": "Ask 'Do you want some?' before eating in front of someone.",
+    "deeds": ["Offer to share once today"]
+  },
+  {
+    "id": 45,
+    "title": "Smile online",
+    "text": "Use one smile emoji in a chat today to spread positivity.",
+    "deeds": ["Send one smile emoji today"]
+  },
+  {
+    "id": 46,
+    "title": "Clap for effort",
+    "text": "Clap sincerely for someone’s performance (even if small).",
+    "deeds": ["Clap once sincerely today"]
+  },
+  {
+    "id": 47,
+    "title": "Check on neighbor",
+    "text": "Say 'How are you?' to a neighbor or society uncle/aunty.",
+    "deeds": ["Check on one neighbor today"]
+  },
+  {
+    "id": 48,
+    "title": "Thank transport staff",
+    "text": "Say 'Thank you' to bus conductor/auto driver/uber driver.",
+    "deeds": ["Thank one driver today"]
+  },
+  {
+    "id": 49,
+    "title": "Encourage artist",
+    "text": "Like/comment on someone’s drawing/song online.",
+    "deeds": ["Encourage one artist today"]
+  },
+  {
+    "id": 50,
+    "title": "Give seat to elder",
+    "text": "Offer your chair if an elder is standing.",
+    "deeds": ["Offer chair once today"]
+  },
+  {
+    "id": 51,
+    "title": "Respect time slots",
+    "text": "Join class/meeting 5 min early as respect.",
+    "deeds": ["Be early once today"]
+  },
+  {
+    "id": 52,
+    "title": "Compliment dress",
+    "text": "Say 'Nice kurta' or 'Cool shirt' to someone.",
+    "deeds": ["Compliment one dress today"]
+  },
+  {
+    "id": 53,
+    "title": "Encourage reading",
+    "text": "Share one book recommendation with a friend.",
+    "deeds": ["Recommend one book today"]
+  },
+  {
+    "id": 54,
+    "title": "Share earphones",
+    "text": "Offer to share music with a friend safely.",
+    "deeds": ["Share music once today"]
+  },
+  {
+    "id": 55,
+    "title": "Say 'Well tried'",
+    "text": "Encourage a friend even if they failed at something.",
+    "deeds": ["Say 'Well tried' once today"]
+  },
+  {
+    "id": 56,
+    "title": "Encourage volunteer",
+    "text": "Thank someone who volunteers or helps others.",
+    "deeds": ["Thank one volunteer today"]
+  },
+  {
+    "id": 57,
+    "title": "Be eco-friendly",
+    "text": "Carry your own bottle or bag instead of plastic.",
+    "deeds": ["Carry reusable once today"]
+  },
+  {
+    "id": 58,
+    "title": "Encourage family",
+    "text": "Say 'Good job' to a sibling or parent for a small effort.",
+    "deeds": ["Encourage one family member today"]
+  },
+  {
+    "id": 59,
+    "title": "Be calm online",
+    "text": "If you disagree online, respond respectfully.",
+    "deeds": ["Write one calm reply today"]
+  },
+  {
+    "id": 60,
+    "title": "Help with chores",
+    "text": "Wash one plate or sweep a small area at home.",
+    "deeds": ["Do one household chore today"]
+  }
 ]
