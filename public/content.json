@@ -359,7 +359,7 @@
     "text": "Wash one plate or sweep a small area at home.",
     "deeds": ["Do one household chore today"]
   },
-{
+  {
     "id": 61,
     "title": "Offer a warm welcome",
     "text": "Smile and welcome a new person at work or class. A gentle 'Welcome!' helps them feel seen.",
@@ -1440,7 +1440,6 @@
     "text": "If someone struggles briefly, lend a hand without delay.",
     "deeds": ["Offer quick help once today"]
   },
-  [
   {
     "id": 241,
     "title": "Say 'You did well'",
@@ -2197,5 +2196,4 @@
     "text": "Reflect on the year of small deeds and celebrate the habit you built.",
     "deeds": ["Do one small act of kindness and reflect on it"]
   }
-]
 ]
