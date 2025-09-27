@@ -63,6 +63,9 @@ function writeMeta(meta) {
 /* badge thresholds */
 const BADGE_THRESHOLDS = [3, 7, 30];
 
+/* onboarding key */
+const ONBOARD_KEY = "sacredverse_onboarded";
+
 export default function App() {
   const [content, setContent] = useState([]);
   const [todayIndex, setTodayIndex] = useState(0);
@@ -78,6 +81,15 @@ export default function App() {
   const [joyMessage, setJoyMessage] = useState(null);
   const [badgeModal, setBadgeModal] = useState(null); // {n: 3} or null
   const [showBadges, setShowBadges] = useState(false);
+
+  /* onboarding modal state */
+  const [showOnboarding, setShowOnboarding] = useState(() => {
+    try {
+      return !localStorage.getItem(ONBOARD_KEY);
+    } catch {
+      return true;
+    }
+  });
 
   /* fetch content */
   useEffect(() => {
@@ -112,6 +124,13 @@ export default function App() {
   useEffect(() => {
     writeMeta(meta);
   }, [meta]);
+
+  /* onboarding localStorage effect */
+  useEffect(() => {
+    if (!showOnboarding) {
+      localStorage.setItem(ONBOARD_KEY, "true");
+    }
+  }, [showOnboarding]);
 
   // THEME: light/dark handling
 const THEME_KEY = "sacredverse_theme"; // stores 'light' or 'dark'
@@ -451,6 +470,23 @@ useEffect(() => {
             <div style={{ marginTop: 14, textAlign: "center" }}>
               <small style={{ color: "var(--muted)" }}>Badges are stored on this device. Sign-in coming soon to sync across devices.</small>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Onboarding modal (first-time users only) */}
+      {showOnboarding && (
+        <div className="onboard-overlay" role="dialog" aria-modal="true">
+          <div className="onboard-card">
+            <div className="logo-round" style={{ margin: "0 auto 12px auto" }}>SV</div>
+            <h2>Welcome to SacredVerse</h2>
+            <p>
+              One simple verse + one good deed every day.  
+              Small steps of kindness that grow into lasting change.
+            </p>
+            <button className="primary" onClick={() => setShowOnboarding(false)}>
+              Start my journey 🌱
+            </button>
           </div>
         </div>
       )}
