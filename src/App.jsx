@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Header, MainContent, DeedsPanel, Footer, BadgeModal, BadgesModal, OnboardingModal } from "./components/index.js";
 
 /* CONFIG */
 const START_DATE_ISO = "2025-09-23"; // Change to your chosen day-1 (YYYY-MM-DD)
@@ -66,6 +67,9 @@ const BADGE_THRESHOLDS = [3, 7, 30];
 /* onboarding key */
 const ONBOARD_KEY = "sacredverse_onboarded";
 
+/* theme key */
+const THEME_KEY = "sacredverse_theme";
+
 export default function App() {
   const [content, setContent] = useState([]);
   const [todayIndex, setTodayIndex] = useState(0);
@@ -88,6 +92,15 @@ export default function App() {
       return !localStorage.getItem(ONBOARD_KEY);
     } catch {
       return true;
+    }
+  });
+
+  /* theme state */
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem(THEME_KEY) || null;
+    } catch {
+      return null;
     }
   });
 
@@ -132,35 +145,24 @@ export default function App() {
     }
   }, [showOnboarding]);
 
-  // THEME: light/dark handling
-const THEME_KEY = "sacredverse_theme"; // stores 'light' or 'dark'
-
-const [theme, setTheme] = useState(() => {
-  try {
-    return localStorage.getItem(THEME_KEY) || null;
-  } catch {
-    return null;
-  }
-});
-
-// apply theme to html element
-useEffect(() => {
-  const html = document.documentElement;
-  // remove any previous marker for system-preference-based default
-  html.classList.remove("user-theme-set");
-  if (theme === "dark") {
-    html.classList.add("dark");
-    html.classList.add("user-theme-set");
-    localStorage.setItem(THEME_KEY, "dark");
-  } else if (theme === "light") {
-    html.classList.remove("dark");
-    html.classList.add("user-theme-set");
-    localStorage.setItem(THEME_KEY, "light");
-  } else {
-    // no explicit user choice — respect system; don't set user-theme-set
-    localStorage.removeItem(THEME_KEY);
-  }
-}, [theme]);
+  /* apply theme to html element */
+  useEffect(() => {
+    const html = document.documentElement;
+    // remove any previous marker for system-preference-based default
+    html.classList.remove("user-theme-set");
+    if (theme === "dark") {
+      html.classList.add("dark");
+      html.classList.add("user-theme-set");
+      localStorage.setItem(THEME_KEY, "dark");
+    } else if (theme === "light") {
+      html.classList.remove("dark");
+      html.classList.add("user-theme-set");
+      localStorage.setItem(THEME_KEY, "light");
+    } else {
+      // no explicit user choice — respect system; don't set user-theme-set
+      localStorage.removeItem(THEME_KEY);
+    }
+  }, [theme]);
 
   /* helpers */
   function computeTotalPoints(prog) {
@@ -176,7 +178,7 @@ useEffect(() => {
     const prev = new Date(base.getTime() - 24 * 3600 * 1000);
     return getISTDatePart(prev);
   }
-  function isTodayCompleted(prog, idx) {
+  function _isTodayCompleted(prog, idx) {
     const d = prog && prog[idx];
     if (!d) return false;
     return Object.values(d).some(Boolean);
@@ -272,8 +274,7 @@ useEffect(() => {
     }
   }
 
-  /* reset demo helpers (not shown in UI) */
-  function resetAllLocalData() {
+  function _resetAllLocalData() {
     localStorage.removeItem(STORAGE_KEY);
     localStorage.removeItem(META_KEY);
     location.reload();
@@ -286,211 +287,65 @@ useEffect(() => {
   const today = content[todayIndex];
   const totalDoneToday = progress[todayIndex] ? Object.values(progress[todayIndex]).filter(Boolean).length : 0;
 
+  const handleShareBadge = () => {
+    setBadgeModal(null);
+    const shareText = `I just earned a ${badgeModal}-day kindness streak on SacredVerse 🌱 — small daily deeds, big heart.`;
+    if (navigator.share) {
+      navigator.share({ title: "SacredVerse", text: shareText, url: window.location.href }).catch(() => {});
+    } else {
+      const wa = `https://wa.me/?text=${encodeURIComponent(shareText + "\n" + window.location.href)}`;
+      window.open(wa, "_blank");
+    }
+  };
+
   return (
     <div className="wrap">
       <div className="card">
-        {/* Header */}
-        <header className="header">
-          <div className="brand" style={{ alignItems: "center" }}>
-            <div className="logo-round" aria-hidden>
-              SV
-            </div>
-            <div>
-              <div className="title">SacredVerse</div>
-              <div style={{ fontSize: 13, color: "var(--muted)" }}>Daily kindness in small steps</div>
-            </div>
-          </div>
+        <Header
+          todayIndex={todayIndex}
+          contentLength={content.length}
+          totalDoneToday={totalDoneToday}
+          meta={meta}
+          theme={theme}
+          onThemeToggle={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
+          onShowBadges={() => setShowBadges(true)}
+        />
 
-          <div className="meta" style={{ textAlign: "right" }}>
-            <div style={{ fontSize: 13, color: "var(--muted)" }}>
-              Day <strong style={{ color: "var(--text)", fontWeight: 700 }}>{todayIndex + 1}</strong> / {content.length}
-            </div>
-
-            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>
-              <div style={{ fontSize: 13, color: "var(--muted)" }}>
-                Good Points: <strong style={{ color: "var(--green-500)" }}>{totalDoneToday}</strong>
-              </div>
-              <div style={{ fontSize: 13, color: "var(--muted)" }}>
-                🔥 Streak: <strong style={{ color: "var(--green-500)" }}>{meta.streak || 0}</strong>
-              </div>
-              <div style={{ fontSize: 13, color: "var(--muted)" }}>
-                ✨ Total: <strong style={{ color: "var(--green-500)" }}>{meta.totalPoints || 0}</strong>
-              </div>
-            </div>
-          </div>
-          {/* Badges button */}
-          <button
-            className="secondary"
-            style={{ display: "inline-flex", alignItems: "center", gap: 8 }}
-            onClick={() => setShowBadges(true)}
-            aria-label="Show badges"
-          >
-            🏅 Badges
-          </button>
-          
-          {/* Theme toggle */}
-          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            <button
-              className="theme-toggle"
-              aria-label="Toggle theme"
-              onClick={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
-              title="Toggle light/dark"
-            >
-              {theme === "dark" ? (
-                <svg viewBox="0 0 24 24" aria-hidden focusable="false"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-              ) : (
-                <svg viewBox="0 0 24 24" aria-hidden focusable="false"><path d="M6.76 4.84l-1.8-1.79L3.17 4.84l1.79 1.8 1.8-1.8zm10.45 0l1.8-1.79 1.79 1.79-1.79 1.8-1.8-1.8zM12 5a1 1 0 110-2 1 1 0 010 2zm0 16a1 1 0 110-2 1 1 0 010 2zm7-7a1 1 0 110-2 1 1 0 010 2zM4 12a1 1 0 110-2 1 1 0 010 2zm13.24 6.16l1.8 1.79 1.79-1.79-1.79-1.8-1.8 1.8zM6.76 19.16l-1.79 1.79 1.79 1.8 1.8-1.8-1.8-1.79z"/></svg>
-              )}
-            </button>
-          </div>
-
-        </header>
-
-        {/* Main content + deeds */}
         <main className="content">
-          <section className="mainText">
-            <h2 className="headline">{today.title}</h2>
-            <p className="copy">{today.text}</p>
+          <MainContent
+            today={today}
+            onShare={shareToday}
+            onCopy={copyTodayText}
+          />
 
-            {/* share / actions row */}
-            <div style={{ marginTop: 14, display: "flex", gap: 10, alignItems: "center" }}>
-              <button className="secondary" onClick={shareToday} aria-label="Share today">
-                Share
-              </button>
-              <button className="secondary" onClick={copyTodayText} aria-label="Copy today">
-                Copy
-              </button>
-            </div>
-          </section>
-
-          <aside className="deeds">
-            {today.deeds.map((d, i) => {
-              const checked = progress[todayIndex] && progress[todayIndex][i];
-              return (
-                <div key={i} className="deed-row">
-                  <button
-                    className={`deed-btn ${checked ? "checked" : ""}`}
-                    onClick={() => toggleDeed(todayIndex, i)}
-                    aria-pressed={!!checked}
-                  >
-                    <span className="dot" aria-hidden></span>
-                    {checked ? "✓ Done" : "Mark done"}
-                  </button>
-                  <div className="deed-text">{d}</div>
-                </div>
-              );
-            })}
-          </aside>
+          <DeedsPanel
+            deeds={today.deeds}
+            progress={progress[todayIndex]}
+            dayIndex={todayIndex}
+            onToggleDeed={toggleDeed}
+          />
         </main>
 
-        {/* Joy message / footer */}
-        <footer className="footer">
-          {joyMessage && (
-            <div className="joy" role="status" aria-live="polite">
-              {joyMessage}
-            </div>
-          )}
-          <small className="note">Small actions. Big kindness.</small>
-        </footer>
+        <Footer joyMessage={joyMessage} />
       </div>
 
-      {/* Badge modal (simple & dismissible) */}
-      {badgeModal && (
-        <div className="badge-overlay" role="dialog" aria-modal="true">
-          <div className="badge-card">
-            <div className="badge-emoji">🏅</div>
-            <h3>Nice — {badgeModal}-day streak!</h3>
-            <p>You’ve completed good deeds {badgeModal} days in a row. Keep going — small steps build habit.</p>
-            <div style={{ display: "flex", gap: 10, marginTop: 12 }}>
-              <button
-                className="primary"
-                onClick={() => {
-                  // close modal
-                  setBadgeModal(null);
-                }}
-              >
-                Sweet!
-              </button>
-              <button
-                className="secondary"
-                onClick={() => {
-                  // close modal and share the achievement
-                  setBadgeModal(null);
-                  // share a short achievement message
-                  const shareText = `I just earned a ${badgeModal}-day kindness streak on SacredVerse 🌱 — small daily deeds, big heart.`;
-                  if (navigator.share) {
-                    navigator.share({ title: "SacredVerse", text: shareText, url: window.location.href }).catch(() => {});
-                  } else {
-                    const wa = `https://wa.me/?text=${encodeURIComponent(shareText + "\n" + window.location.href)}`;
-                    window.open(wa, "_blank");
-                  }
-                }}
-              >
-                Share
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-      {/* Badges panel/modal */}
-      {showBadges && (
-        <div className="badge-overlay" role="dialog" aria-modal="true">
-          <div className="badge-card" style={{ maxWidth: 520 }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12 }}>
-              <h3 style={{ margin: 0 }}>Your Badges</h3>
-              <button className="secondary" onClick={() => setShowBadges(false)} aria-label="Close badges">Close</button>
-            </div>
+      <BadgeModal
+        badgeNumber={badgeModal}
+        onClose={() => setBadgeModal(null)}
+        onShare={handleShareBadge}
+      />
 
-            <div style={{ marginTop: 14, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 12 }}>
-              {BADGE_THRESHOLDS.map((t) => {
-                const unlocked = (meta.badges || []).includes(t);
-                return (
-                  <div key={t} className={`badge-tile ${unlocked ? "unlocked" : "locked"}`} style={{ padding: 12, borderRadius: 12, textAlign: "center", background: unlocked ? "linear-gradient(90deg,var(--green-300),var(--green-400))" : "transparent", color: unlocked ? "white" : "var(--muted)", border: unlocked ? "0" : "1px solid rgba(15,23,36,0.06)" }}>
-                    <div style={{ fontSize: 28 }}>{unlocked ? "🏅" : "🔒"}</div>
-                    <div style={{ fontWeight: 700, marginTop: 8 }}>{t}-day streak</div>
-                    <div style={{ fontSize: 13, marginTop: 6 }}>{unlocked ? "Unlocked — nice!" : `Complete ${t} days in a row`}</div>
-                    {unlocked && (
-                      <div style={{ marginTop: 10, display: "flex", gap: 8, justifyContent: "center" }}>
-                        <button className="secondary" onClick={() => {
-                          const shareText = `I earned a ${t}-day kindness streak on SacredVerse 🌱 — small daily deeds, big heart.`;
-                          if (navigator.share) {
-                            navigator.share({ title: "SacredVerse", text: shareText, url: window.location.href }).catch(()=>{});
-                          } else {
-                            const wa = `https://wa.me/?text=${encodeURIComponent(shareText + "\n" + window.location.href)}`;
-                            window.open(wa, "_blank");
-                          }
-                        }}>Share</button>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+      <BadgesModal
+        show={showBadges}
+        onClose={() => setShowBadges(false)}
+        meta={meta}
+        badgeThresholds={BADGE_THRESHOLDS}
+      />
 
-            <div style={{ marginTop: 14, textAlign: "center" }}>
-              <small style={{ color: "var(--muted)" }}>Badges are stored on this device. Sign-in coming soon to sync across devices.</small>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Onboarding modal (first-time users only) */}
-      {showOnboarding && (
-        <div className="onboard-overlay" role="dialog" aria-modal="true">
-          <div className="onboard-card">
-            <div className="logo-round" style={{ margin: "0 auto 12px auto" }}>SV</div>
-            <h2>Welcome to SacredVerse</h2>
-            <p>
-              One simple verse + one good deed every day.  
-              Small steps of kindness that grow into lasting change.
-            </p>
-            <button className="primary" onClick={() => setShowOnboarding(false)}>
-              Start my journey 🌱
-            </button>
-          </div>
-        </div>
-      )}
-
+      <OnboardingModal
+        show={showOnboarding}
+        onStart={() => setShowOnboarding(false)}
+      />
 
       {/* dev helper: reset (hidden behind keyboard shortcut or remove in production) */}
       {/* For safety, we won't render a visible reset control. Use console: window.appResetMeta() */}
