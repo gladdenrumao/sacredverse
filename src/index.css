@@ -255,6 +255,92 @@ button.primary{
   .content{flex-direction:column;}
   .deeds{width:100%}
   .mainText{order:2}
+  
+  /* Improve header layout on mobile */
+  .header {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .brand {
+    flex: 1 1 100%;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  
+  .meta {
+    flex: 1 1 auto;
+    text-align: center !important;
+    margin-bottom: 8px;
+  }
+}
+
+/* Enhanced mobile-first design */
+@media (max-width:520px){
+  .card{padding:16px}
+  .logo-round{width:40px;height:40px}
+  .headline{font-size:18px}
+  .deed-btn{padding:8px 10px;min-width:84px}
+  .badge-card{padding:16px;border-radius:12px}
+  
+  /* Improved touch targets for mobile */
+  .deed-btn {
+    min-height: 48px;
+    min-width: 120px;
+    font-size: 14px;
+  }
+  
+  /* Better spacing for small screens */
+  .deed-row {
+    margin-bottom: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .deed-text {
+    margin-left: 12px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+  
+  /* Header improvements for very small screens */
+  .header {
+    text-align: center;
+  }
+  
+  .meta div {
+    font-size: 12px;
+  }
+  
+  /* Better button layout on mobile */
+  .content .secondary {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+/* Even smaller screens (older phones) */
+@media (max-width:375px){
+  body {
+    padding: 12px;
+  }
+  
+  .wrap {
+    padding: 12px;
+  }
+  
+  .card {
+    padding: 12px;
+  }
+  
+  .brand div {
+    font-size: 12px;
+  }
+  
+  .title {
+    font-size: 16px;
+  }
 }
 
 /* accessibility: focus */
@@ -267,11 +353,7 @@ button.primary{
 
 /* small tweaks for smaller screens */
 @media (max-width:520px){
-  .card{padding:16px}
-  .logo-round{width:40px;height:40px}
-  .headline{font-size:18px}
-  .deed-btn{padding:8px 10px;min-width:84px}
-  .badge-card{padding:16px;border-radius:12px}
+  /* This section has been moved above and enhanced */
 }
 
 /* Helper: visually-hidden (for accessibility utilities if needed) */
