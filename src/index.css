@@ -257,6 +257,92 @@ button.primary{
   .mainText{order:2}
 }
 
+/* tablet optimizations */
+@media (max-width:1024px) and (min-width:768px){
+  .header{
+    flex-wrap:wrap;
+    gap:16px;
+  }
+  .meta{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    align-items:flex-end;
+  }
+  .card{
+    padding:20px;
+  }
+  .deeds{
+    padding:16px;
+  }
+  
+  /* better tablet typography */
+  .headline{font-size:19px}
+  .copy{font-size:15px;line-height:1.55}
+  .deed-text{font-size:14px}
+  
+  /* tablet-friendly touch targets */
+  .deed-btn{
+    min-height:48px;
+    padding:12px 16px;
+  }
+  button.secondary, button.primary{
+    min-height:48px;
+    padding:12px 18px;
+  }
+}
+
+/* improved mobile header layout */
+@media (max-width:767px){
+  .header{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:16px;
+  }
+  .brand{
+    justify-content:center;
+  }
+  .meta{
+    width:100%;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .meta > div:first-child{
+    order:1;
+  }
+  .meta > div:last-child{
+    order:2;
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  
+  /* mobile content optimizations */
+  .content{
+    gap:20px;
+  }
+  .mainText{
+    order:1; /* content first on mobile */
+  }
+  .deeds{
+    order:2;
+    max-height:50vh; /* shorter on mobile */
+  }
+  
+  /* better mobile interactions */
+  .deed-btn:hover, button.secondary:hover, button.primary:hover{
+    transform:none; /* disable hover effects on touch devices */
+  }
+  .deed-btn:active, button.secondary:active, button.primary:active{
+    transform:scale(0.98);
+    transition:transform 0.1s ease;
+  }
+}
+
 /* accessibility: focus */
 .deed-btn:focus, button.secondary:focus, button.primary:focus, .theme-toggle:focus{outline:3px solid var(--focus);outline-offset:4px}
 
@@ -272,6 +358,46 @@ button.primary{
   .headline{font-size:18px}
   .deed-btn{padding:8px 10px;min-width:84px}
   .badge-card{padding:16px;border-radius:12px}
+  
+  /* improved mobile typography */
+  .title{font-size:16px}
+  .copy{font-size:14px;line-height:1.5}
+  .deed-text{font-size:13px}
+  
+  /* better mobile spacing */
+  .content{gap:16px}
+  .deeds{padding:12px;gap:10px}
+  .deed-row{margin-bottom:8px}
+  
+  /* mobile-friendly button sizing */
+  .deed-btn{
+    padding:10px 12px;
+    min-height:44px; /* iOS recommended touch target */
+    font-size:13px;
+  }
+  button.secondary, button.primary{
+    min-height:44px;
+    padding:10px 16px;
+  }
+}
+
+/* very small screens (iPhone SE, etc.) */
+@media (max-width:375px){
+  body{padding:12px}
+  .wrap{padding:16px}
+  .card{padding:14px}
+  
+  .header{gap:12px}
+  .brand{gap:10px}
+  .logo-round{width:36px;height:36px;font-size:16px}
+  .title{font-size:15px}
+  
+  .headline{font-size:17px}
+  .copy{font-size:13px}
+  
+  .meta > div:last-child{
+    gap:12px;
+  }
 }
 
 /* Helper: visually-hidden (for accessibility utilities if needed) */
