@@ -161,20 +161,37 @@ html.dark .deeds{
 .deed-text{flex:1;color:var(--text);font-size:14px}
 
 /* deed button */
-.deed-btn{
-  border:0;padding:10px 14px;border-radius:12px;cursor:pointer;
-  background: transparent;
-  font-weight:700;letter-spacing:0.2px;
-  display:inline-flex;align-items:center;gap:8px;
-  transition:transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease, background var(--transition-fast) ease, color var(--transition-fast) ease;
-  box-shadow:none;border:1px solid rgba(15,23,36,0.06);
-  background: linear-gradient(180deg,#fff,#fbfffb);
-  min-width:96px;color:var(--text);
+.deed-btn {
+  border: 1px solid rgba(15,23,36,0.15); /* 🌟 stronger border */
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 110px;
+
+  background: linear-gradient(180deg, #f9fafb, #f1f5f9); /* 🌟 subtle grey background */
+  color: var(--text); /* 🌟 ensures readable dark text in light mode */
+  transition: transform var(--transition-fast) ease,
+              box-shadow var(--transition-fast) ease,
+              background var(--transition-fast) ease,
+              color var(--transition-fast) ease;
 }
-html.dark .deed-btn{
-  border:1px solid rgba(255,255,255,0.04);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+
+html.dark .deed-btn {
+  border: 1px solid rgba(255,255,255,0.12); /* 🌟 stronger border in dark mode */
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  color: var(--text); /* 🌟 lighter text in dark mode */
 }
+
+.deed-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
 .deed-btn .dot{
   width:8px;height:8px;border-radius:50%;background:var(--green-400);
   box-shadow:0 6px 12px rgba(86,197,150,0.12);
