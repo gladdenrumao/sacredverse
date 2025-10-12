@@ -128,9 +128,15 @@ export default function App() {
   /* theme state */
   const [theme, setTheme] = useState(() => {
     try {
-      return localStorage.getItem(THEME_KEY) || null;
+      // Force default theme to 'light' for fresh users
+      const stored = localStorage.getItem(THEME_KEY);
+      if (!stored) {
+        localStorage.setItem(THEME_KEY, 'light');
+        return 'light';
+      }
+      return stored;
     } catch {
-      return null;
+      return 'light';
     }
   });
 
@@ -178,19 +184,15 @@ export default function App() {
   /* apply theme to html element */
   useEffect(() => {
     const html = document.documentElement;
-    // remove any previous marker for system-preference-based default
     html.classList.remove("user-theme-set");
     if (theme === "dark") {
       html.classList.add("dark");
       html.classList.add("user-theme-set");
       localStorage.setItem(THEME_KEY, "dark");
-    } else if (theme === "light") {
+    } else {
       html.classList.remove("dark");
       html.classList.add("user-theme-set");
       localStorage.setItem(THEME_KEY, "light");
-    } else {
-      // no explicit user choice — respect system; don't set user-theme-set
-      localStorage.removeItem(THEME_KEY);
     }
   }, [theme]);
 
