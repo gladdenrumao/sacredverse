@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Header, MainContent, DeedsPanel, Footer, BadgeModal, BadgesModal, OnboardingModal } from "./components/index.js";
+import { GoogleLogin } from '@react-oauth/google';
 
 /* CONFIG */
 const START_DATE_ISO = "2025-09-23"; // Change to your chosen day-1 (YYYY-MM-DD)
@@ -70,7 +71,36 @@ const ONBOARD_KEY = "sacredverse_onboarded";
 /* theme key */
 const THEME_KEY = "sacredverse_theme";
 
+
+// Google SignIn component
+function GoogleSignIn({ onSuccess, onSkip }) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 300 }}>
+      <h2>Welcome to SacredVerse</h2>
+      <p style={{ marginBottom: 24 }}>Sign in to save your progress across devices.</p>
+      <GoogleLogin
+        onSuccess={credentialResponse => onSuccess(credentialResponse)}
+        onError={() => alert('Google Sign-In failed')}
+        width="260"
+      />
+      <button style={{ marginTop: 24, background: 'none', border: 'none', color: '#555', textDecoration: 'underline', cursor: 'pointer' }} onClick={onSkip}>
+        Skip for now
+      </button>
+    </div>
+  );
+}
+
 export default function App() {
+  // User state for Google login
+  const [user, setUser] = useState(() => {
+    try {
+      const u = localStorage.getItem('sacredverse_user');
+      return u ? JSON.parse(u) : null;
+    } catch {
+      return null;
+    }
+  });
+
   const [content, setContent] = useState([]);
   const [todayIndex, setTodayIndex] = useState(0);
   const [progress, setProgress] = useState(() => {
@@ -297,6 +327,27 @@ export default function App() {
       window.open(wa, "_blank");
     }
   };
+
+  if (!user) {
+    // Show Google sign-in screen if not signed in
+    return (
+      <div className="wrap">
+        <div className="card">
+          <GoogleSignIn
+            onSuccess={cred => {
+              // Save user info (for demo, just save credential)
+              setUser(cred);
+              localStorage.setItem('sacredverse_user', JSON.stringify(cred));
+            }}
+            onSkip={() => {
+              setUser({ skipped: true });
+              localStorage.setItem('sacredverse_user', JSON.stringify({ skipped: true }));
+            }}
+          />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="wrap">
