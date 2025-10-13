@@ -93,19 +93,6 @@ function GoogleSignIn({ onSuccess, onSkip }) {
 }
 
 export default function App() {
-  // Loading state for Firestore user data
-  const [userDataLoaded, setUserDataLoaded] = useState(!isLoggedIn);
-  // Modal and transient UI states (declare each only once)
-  const [badgeModal, setBadgeModal] = useState(null);
-  const [showBadges, setShowBadges] = useState(false);
-  const [showOnboarding, setShowOnboarding] = useState(() => {
-    try {
-      return !localStorage.getItem(ONBOARD_KEY);
-    } catch {
-      return true;
-    }
-  });
-  const [joyMessage, setJoyMessage] = useState(null);
   // User state for Google login
   const [user, setUser] = useState(() => {
     try {
@@ -116,8 +103,6 @@ export default function App() {
     }
   });
 
-  const [content, setContent] = useState([]);
-  const [todayIndex, setTodayIndex] = useState(0);
   // Helper: get userId (Google sub or email)
   function getUserId(user) {
     if (!user) return null;
@@ -135,6 +120,23 @@ export default function App() {
 
   // Progress/meta state: use Firestore for logged-in, localStorage for guests
   const isLoggedIn = !!getUserId(user);
+
+  // Loading state for Firestore user data
+  const [userDataLoaded, setUserDataLoaded] = useState(!isLoggedIn);
+  // Modal and transient UI states (declare each only once)
+  const [badgeModal, setBadgeModal] = useState(null);
+  const [showBadges, setShowBadges] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(() => {
+    try {
+      return !localStorage.getItem(ONBOARD_KEY);
+    } catch {
+      return true;
+    }
+  });
+  const [joyMessage, setJoyMessage] = useState(null);
+
+  const [content, setContent] = useState([]);
+  const [todayIndex, setTodayIndex] = useState(0);
 
   const [progress, setProgress] = useState(() => {
     if (isLoggedIn) return {}; // Will be loaded from Firestore
