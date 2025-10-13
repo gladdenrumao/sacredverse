@@ -401,6 +401,8 @@ export default function App() {
   function handleSignOut() {
     localStorage.removeItem('sacredverse_user');
     setUser(null);
+    setProgress({});
+    setMeta({ lastCompletedDate: null, streak: 0, totalPoints: 0, badges: [] });
     // No reload: let React rerender to sign-in screen
   }
 
