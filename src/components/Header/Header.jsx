@@ -43,9 +43,6 @@ export function Header({
           <div style={{ fontSize: 13, color: "var(--muted)" }}>
             🔥 Streak: <strong style={{ color: "var(--green-500)" }}>{meta.streak || 0}</strong>
           </div>
-          <div style={{ fontSize: 13, color: "var(--muted)" }}>
-            ✨ Total: <strong style={{ color: "var(--green-500)" }}>{meta.totalPoints || 0}</strong>
-          </div>
         </div>
       </div>
 

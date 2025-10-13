@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Header, MainContent, DeedsPanel, Footer, BadgeModal, BadgesModal, OnboardingModal } from "./components/index.js";
 import { GoogleLogin } from '@react-oauth/google';
+import { db } from "./firebase";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 /* CONFIG */
 const START_DATE_ISO = "2025-09-23"; // Change to your chosen day-1 (YYYY-MM-DD)
@@ -103,18 +105,36 @@ export default function App() {
 
   const [content, setContent] = useState([]);
   const [todayIndex, setTodayIndex] = useState(0);
+  // Helper: get userId (Google sub or email)
+  function getUserId(user) {
+    if (!user) return null;
+    // Google OAuth credential: use sub (user id) or email
+    if (user.credential) {
+      try {
+        const payload = JSON.parse(atob(user.credential.split(".")[1]));
+        return payload.sub || payload.email;
+      } catch {
+        return null;
+      }
+    }
+    return null;
+  }
+
+  // Progress/meta state: use Firestore for logged-in, localStorage for guests
+  const isLoggedIn = !!getUserId(user);
+
   const [progress, setProgress] = useState(() => {
+    if (isLoggedIn) return {}; // Will be loaded from Firestore
     try {
       return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
     } catch {
       return {};
     }
   });
-
-  const [meta, setMeta] = useState(() => readMeta());
-  const [joyMessage, setJoyMessage] = useState(null);
-  const [badgeModal, setBadgeModal] = useState(null); // {n: 3} or null
-  const [showBadges, setShowBadges] = useState(false);
+  const [meta, setMeta] = useState(() => {
+    if (isLoggedIn) return { lastCompletedDate: null, streak: 0, totalPoints: 0, badges: [] };
+    return readMeta();
+  });
 
   /* onboarding modal state */
   const [showOnboarding, setShowOnboarding] = useState(() => {
@@ -166,13 +186,45 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [content]);
 
-  /* persist progress/meta */
+  // Firestore sync: load progress/meta for logged-in user
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-  }, [progress]);
+    const userId = getUserId(user);
+    if (!userId) return;
+    (async () => {
+      const docRef = doc(db, "users", userId);
+      const snap = await getDoc(docRef);
+      if (snap.exists()) {
+        const data = snap.data();
+        if (data.progress) setProgress(data.progress);
+        if (data.meta) setMeta(data.meta);
+      } else {
+        // If no data, start fresh
+        setProgress({});
+        setMeta({ lastCompletedDate: null, streak: 0, totalPoints: 0, badges: [] });
+      }
+    })();
+    // eslint-disable-next-line
+  }, [user]);
+
+  // Firestore sync: save progress/meta for logged-in user
+  async function saveUserProgress(newProgress, newMeta) {
+    const userId = getUserId(user);
+    if (!userId) return;
+    const docRef = doc(db, "users", userId);
+    await setDoc(docRef, { progress: newProgress, meta: newMeta }, { merge: true });
+  }
+
+  // Persist progress/meta for guests only
   useEffect(() => {
-    writeMeta(meta);
-  }, [meta]);
+    if (!isLoggedIn) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+    }
+  }, [progress, isLoggedIn]);
+  useEffect(() => {
+    if (!isLoggedIn) {
+      writeMeta(meta);
+    }
+  }, [meta, isLoggedIn]);
 
   /* onboarding localStorage effect */
   useEffect(() => {
@@ -201,7 +253,7 @@ export default function App() {
     let sum = 0;
     Object.values(prog || {}).forEach((dayObj) => {
       if (!dayObj) return;
-      sum += Object.values(dayObj).filter(Boolean).length;
+      sum += Object.values(dayObj).filter(Boolean).length * 10;
     });
     return sum;
   }
@@ -228,12 +280,10 @@ export default function App() {
 
       const newTotalPoints = computeTotalPoints(copy);
 
-      // update meta safely using setMeta functional form
       setMeta((prevMeta) => {
         const newMeta = { ...prevMeta, totalPoints: newTotalPoints };
         const todayDatePart = getISTDatePart(new Date());
 
-        // only when transitioning from not-completed => completed
         if (!wasCompletedBefore && nowCompleted) {
           const lastDate = newMeta.lastCompletedDate;
           if (lastDate && lastDate === yesterdayOf(todayDatePart)) {
@@ -243,19 +293,24 @@ export default function App() {
           }
           newMeta.lastCompletedDate = todayDatePart;
 
-          // badge check: if streak now equals a threshold not yet in badges -> unlock
           const newlyEarned = BADGE_THRESHOLDS.filter((t) => newMeta.streak === t && !(newMeta.badges || []).includes(t));
           if (newlyEarned.length > 0) {
-            // add badge(s)
             newMeta.badges = Array.from(new Set([...(newMeta.badges || []), ...newlyEarned]));
-            // show the first badge modal (usually one)
             setBadgeModal(newlyEarned[0]);
           }
         }
 
-        // friendly UX: do not decrement streak on uncheck
+        // Save to Firestore if logged in
+        if (isLoggedIn) {
+          saveUserProgress(copy, newMeta);
+        }
         return newMeta;
       });
+
+      // Save to Firestore if logged in (for progress)
+      if (isLoggedIn) {
+        saveUserProgress(copy, undefined);
+      }
 
       return copy;
     });
@@ -319,6 +374,9 @@ export default function App() {
   const today = content[todayIndex];
   const totalDoneToday = progress[todayIndex] ? Object.values(progress[todayIndex]).filter(Boolean).length : 0;
 
+  // Compute Good Points as 10 per completed task
+  const goodPointsToday = progress[todayIndex] ? Object.values(progress[todayIndex]).filter(Boolean).length * 10 : 0;
+
   const handleShareBadge = () => {
     setBadgeModal(null);
     const shareText = `I just earned a ${badgeModal}-day kindness streak on SacredVerse 🌱 — small daily deeds, big heart.`;
@@ -357,7 +415,7 @@ export default function App() {
         <Header
           todayIndex={todayIndex}
           contentLength={content.length}
-          totalDoneToday={totalDoneToday}
+          totalDoneToday={goodPointsToday}
           meta={meta}
           theme={theme}
           onThemeToggle={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
