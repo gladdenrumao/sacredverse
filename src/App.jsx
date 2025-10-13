@@ -93,8 +93,17 @@ function GoogleSignIn({ onSuccess, onSkip }) {
 }
 
 export default function App() {
-  // Badge modal state
+  // Modal and transient UI states (declare each only once)
   const [badgeModal, setBadgeModal] = useState(null);
+  const [showBadges, setShowBadges] = useState(false);
+  const [showOnboarding, setShowOnboarding] = useState(() => {
+    try {
+      return !localStorage.getItem(ONBOARD_KEY);
+    } catch {
+      return true;
+    }
+  });
+  const [joyMessage, setJoyMessage] = useState(null);
   // User state for Google login
   const [user, setUser] = useState(() => {
     try {
@@ -104,9 +113,6 @@ export default function App() {
       return null;
     }
   });
-
-  // Fix: Add joyMessage state
-  const [joyMessage, setJoyMessage] = useState(null);
 
   const [content, setContent] = useState([]);
   const [todayIndex, setTodayIndex] = useState(0);
@@ -141,14 +147,7 @@ export default function App() {
     return readMeta();
   });
 
-  /* onboarding modal state */
-  const [showOnboarding, setShowOnboarding] = useState(() => {
-    try {
-      return !localStorage.getItem(ONBOARD_KEY);
-    } catch {
-      return true;
-    }
-  });
+  // ...existing code...
 
   /* theme state */
   const [theme, setTheme] = useState(() => {
