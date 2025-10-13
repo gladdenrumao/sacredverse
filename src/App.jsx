@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Header, MainContent, DeedsPanel, Footer, BadgeModal, BadgesModal, OnboardingModal } from "./components/index.js";
-import { GoogleLogin } from '@react-oauth/google';
-import { db } from "./firebase";
-import { doc, getDoc, setDoc } from "firebase/firestore";
 
 /* CONFIG */
 const START_DATE_ISO = "2025-09-23"; // Change to your chosen day-1 (YYYY-MM-DD)
@@ -73,57 +70,8 @@ const ONBOARD_KEY = "sacredverse_onboarded";
 /* theme key */
 const THEME_KEY = "sacredverse_theme";
 
-
-// Google SignIn component
-function GoogleSignIn({ onSuccess, onSkip }) {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: 300 }}>
-      <h2>Welcome to SacredVerse</h2>
-      <p style={{ marginBottom: 24 }}>Sign in to save your progress across devices.</p>
-      <GoogleLogin
-        onSuccess={credentialResponse => onSuccess(credentialResponse)}
-        onError={() => alert('Google Sign-In failed')}
-        width="260"
-      />
-      <button style={{ marginTop: 24, background: 'none', border: 'none', color: '#555', textDecoration: 'underline', cursor: 'pointer' }} onClick={onSkip}>
-        Skip for now
-      </button>
-    </div>
-  );
-}
-
 export default function App() {
-  // User state for Google login
-  const [user, setUser] = useState(() => {
-    try {
-      const u = localStorage.getItem('sacredverse_user');
-      return u ? JSON.parse(u) : null;
-    } catch {
-      return null;
-    }
-  });
-
-  // Helper: get userId (Google sub or email)
-  function getUserId(user) {
-    if (!user) return null;
-    // Google OAuth credential: use sub (user id) or email
-    if (user.credential) {
-      try {
-        const payload = JSON.parse(atob(user.credential.split(".")[1]));
-        return payload.sub || payload.email;
-      } catch {
-        return null;
-      }
-    }
-    return null;
-  }
-
-  // Progress/meta state: use Firestore for logged-in, localStorage for guests
-  const isLoggedIn = !!getUserId(user);
-
-  // Loading state for Firestore user data
-  const [userDataLoaded, setUserDataLoaded] = useState(!isLoggedIn);
-  // Modal and transient UI states (declare each only once)
+  // Modal and transient UI states
   const [badgeModal, setBadgeModal] = useState(null);
   const [showBadges, setShowBadges] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(() => {
@@ -139,7 +87,6 @@ export default function App() {
   const [todayIndex, setTodayIndex] = useState(0);
 
   const [progress, setProgress] = useState(() => {
-    if (isLoggedIn) return {}; // Will be loaded from Firestore
     try {
       return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
     } catch {
@@ -147,7 +94,6 @@ export default function App() {
     }
   });
   const [meta, setMeta] = useState(() => {
-    if (isLoggedIn) return { lastCompletedDate: null, streak: 0, totalPoints: 0, badges: [] };
     return readMeta();
   });
 
@@ -194,49 +140,15 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [content]);
 
-  // Firestore sync: load progress/meta for logged-in user
+  // Persist progress to localStorage
   useEffect(() => {
-    const userId = getUserId(user);
-    if (!userId) {
-      setUserDataLoaded(true);
-      return;
-    }
-    setUserDataLoaded(false);
-    (async () => {
-      const docRef = doc(db, "users", userId);
-      const snap = await getDoc(docRef);
-      if (snap.exists()) {
-        const data = snap.data();
-        if (data.progress) setProgress(data.progress);
-        if (data.meta) setMeta(data.meta);
-      } else {
-        setProgress({});
-        setMeta({ lastCompletedDate: null, streak: 0, totalPoints: 0, badges: [] });
-      }
-      setUserDataLoaded(true);
-    })();
-    // eslint-disable-next-line
-  }, [user]);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
+  }, [progress]);
 
-  // Firestore sync: save progress/meta for logged-in user
-  async function saveUserProgress(newProgress, newMeta) {
-    const userId = getUserId(user);
-    if (!userId || !userDataLoaded) return;
-    const docRef = doc(db, "users", userId);
-    await setDoc(docRef, { progress: newProgress, meta: newMeta }, { merge: true });
-  }
-
-  // Persist progress/meta for guests only
+  // Persist meta to localStorage
   useEffect(() => {
-    if (!isLoggedIn) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-    }
-  }, [progress, isLoggedIn]);
-  useEffect(() => {
-    if (!isLoggedIn) {
-      writeMeta(meta);
-    }
-  }, [meta, isLoggedIn]);
+    writeMeta(meta);
+  }, [meta]);
 
   /* onboarding localStorage effect */
   useEffect(() => {
@@ -312,17 +224,8 @@ export default function App() {
           }
         }
 
-        // Save to Firestore if logged in
-        if (isLoggedIn) {
-          saveUserProgress(copy, newMeta);
-        }
         return newMeta;
       });
-
-      // Save to Firestore if logged in (for progress)
-      if (isLoggedIn) {
-        saveUserProgress(copy, undefined);
-      }
 
       return copy;
     });
@@ -379,18 +282,11 @@ export default function App() {
     location.reload();
   }
 
-  if (
-    content.length === 0 ||
-    (isLoggedIn && !userDataLoaded) ||
-    progress == null ||
-    meta == null ||
-    user === undefined
-  ) {
+  if (content.length === 0 || progress == null || meta == null) {
     return <div className="wrap">Loading…</div>;
   }
 
   const today = content[todayIndex];
-  const totalDoneToday = progress[todayIndex] ? Object.values(progress[todayIndex]).filter(Boolean).length : 0;
 
   // Compute Good Points as 10 per completed task
   const goodPointsToday = progress[todayIndex] ? Object.values(progress[todayIndex]).filter(Boolean).length * 10 : 0;
@@ -406,35 +302,6 @@ export default function App() {
     }
   };
 
-  function handleSignOut() {
-    localStorage.removeItem('sacredverse_user');
-    setUser(null);
-    setProgress({});
-    setMeta({ lastCompletedDate: null, streak: 0, totalPoints: 0, badges: [] });
-    // No reload: let React rerender to sign-in screen
-  }
-
-  if (!user) {
-    // Show Google sign-in screen if not signed in
-    return (
-      <div className="wrap">
-        <div className="card">
-          <GoogleSignIn
-            onSuccess={cred => {
-              // Save user info (for demo, just save credential)
-              setUser(cred);
-              localStorage.setItem('sacredverse_user', JSON.stringify(cred));
-            }}
-            onSkip={() => {
-              setUser({ skipped: true });
-              localStorage.setItem('sacredverse_user', JSON.stringify({ skipped: true }));
-            }}
-          />
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="wrap">
       <div className="card">
@@ -447,11 +314,6 @@ export default function App() {
           onThemeToggle={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
           onShowBadges={() => setShowBadges(true)}
         />
-        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
-          <button className="secondary" onClick={handleSignOut} style={{ fontSize: 14, padding: '6px 16px', borderRadius: 8 }}>
-            Sign out
-          </button>
-        </div>
 
         <main className="content">
           <MainContent
