@@ -103,6 +103,9 @@ export default function App() {
     }
   });
 
+  // Fix: Add joyMessage state
+  const [joyMessage, setJoyMessage] = useState(null);
+
   const [content, setContent] = useState([]);
   const [todayIndex, setTodayIndex] = useState(0);
   // Helper: get userId (Google sub or email)
