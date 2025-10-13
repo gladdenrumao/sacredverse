@@ -93,6 +93,8 @@ function GoogleSignIn({ onSuccess, onSkip }) {
 }
 
 export default function App() {
+  // Loading state for Firestore user data
+  const [userDataLoaded, setUserDataLoaded] = useState(!isLoggedIn);
   // Modal and transient UI states (declare each only once)
   const [badgeModal, setBadgeModal] = useState(null);
   const [showBadges, setShowBadges] = useState(false);
@@ -193,7 +195,11 @@ export default function App() {
   // Firestore sync: load progress/meta for logged-in user
   useEffect(() => {
     const userId = getUserId(user);
-    if (!userId) return;
+    if (!userId) {
+      setUserDataLoaded(true);
+      return;
+    }
+    setUserDataLoaded(false);
     (async () => {
       const docRef = doc(db, "users", userId);
       const snap = await getDoc(docRef);
@@ -202,10 +208,10 @@ export default function App() {
         if (data.progress) setProgress(data.progress);
         if (data.meta) setMeta(data.meta);
       } else {
-        // If no data, start fresh
         setProgress({});
         setMeta({ lastCompletedDate: null, streak: 0, totalPoints: 0, badges: [] });
       }
+      setUserDataLoaded(true);
     })();
     // eslint-disable-next-line
   }, [user]);
@@ -213,7 +219,7 @@ export default function App() {
   // Firestore sync: save progress/meta for logged-in user
   async function saveUserProgress(newProgress, newMeta) {
     const userId = getUserId(user);
-    if (!userId) return;
+    if (!userId || !userDataLoaded) return;
     const docRef = doc(db, "users", userId);
     await setDoc(docRef, { progress: newProgress, meta: newMeta }, { merge: true });
   }
@@ -371,7 +377,7 @@ export default function App() {
     location.reload();
   }
 
-  if (content.length === 0) {
+  if (content.length === 0 || (isLoggedIn && !userDataLoaded)) {
     return <div className="wrap">Loading…</div>;
   }
 
