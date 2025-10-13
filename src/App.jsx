@@ -388,6 +388,12 @@ export default function App() {
     }
   };
 
+  function handleSignOut() {
+    localStorage.removeItem('sacredverse_user');
+    setUser(null);
+    window.location.reload();
+  }
+
   if (!user) {
     // Show Google sign-in screen if not signed in
     return (
@@ -421,6 +427,11 @@ export default function App() {
           onThemeToggle={() => setTheme((t) => (t === "dark" ? "light" : "dark"))}
           onShowBadges={() => setShowBadges(true)}
         />
+        <div style={{ display: 'flex', justifyContent: 'flex-end', marginBottom: 12 }}>
+          <button className="secondary" onClick={handleSignOut} style={{ fontSize: 14, padding: '6px 16px', borderRadius: 8 }}>
+            Sign out
+          </button>
+        </div>
 
         <main className="content">
           <MainContent
