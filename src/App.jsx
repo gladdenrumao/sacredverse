@@ -401,7 +401,7 @@ export default function App() {
   function handleSignOut() {
     localStorage.removeItem('sacredverse_user');
     setUser(null);
-    window.location.reload();
+    // No reload: let React rerender to sign-in screen
   }
 
   if (!user) {
