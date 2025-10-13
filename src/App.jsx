@@ -93,6 +93,8 @@ function GoogleSignIn({ onSuccess, onSkip }) {
 }
 
 export default function App() {
+  // Badge modal state
+  const [badgeModal, setBadgeModal] = useState(null);
   // User state for Google login
   const [user, setUser] = useState(() => {
     try {
