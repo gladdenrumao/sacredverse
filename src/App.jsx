@@ -377,7 +377,13 @@ export default function App() {
     location.reload();
   }
 
-  if (content.length === 0 || (isLoggedIn && !userDataLoaded)) {
+  if (
+    content.length === 0 ||
+    (isLoggedIn && !userDataLoaded) ||
+    progress == null ||
+    meta == null ||
+    user === undefined
+  ) {
     return <div className="wrap">Loading…</div>;
   }
 
